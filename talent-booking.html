@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Talent Booking</title>
+  <link rel="stylesheet" href="talent-booking.css" />
+</head>
+<body>
+
+  <div id="rotate-notice">
+  <div class="rotate-icon-animated"></div>
+  <p>Please rotate your device</p>
+</div>
+
+  <div class="floating-menu-wrapper" id="floatingMenu">
+  <div class="floating-button" id="floatingButton" onclick="toggleMiniMenu()"></div>
+  <div class="mini-menu" id="miniMenu">
+    <a href="index.html#about">ABOUT</a>
+    <a href="talent-booking.html">TALENT</a>
+    <a href="special-projects.html">PROJECTS</a>
+    <a href="index.html#contact">CONTACT</a>
+  </div>
+</div>
+ <section class="intro-video-section">
+  <div class="intro-video-wrapper">
+    <video autoplay muted loop class="intro-video">
+      <source src="intro-tb.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="intro-overlay">
+      <h1 class="intro-title">TALENT BOOKING</h1>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Контент TALENT BOOKING -->
+<div style="padding: 20px;">
+  <button onclick="window.history.back()" style="
+    background-color: #22222200;
+    color: #ffcc70;
+    border: 2px solid #55555500;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#444'" onmouseout="this.style.backgroundColor='#222'">
+    ← Back
+  </button>
+</div>
+
+   <!-- Первый артист -->
+<section class="talent-highlight">
+  <div class="project-card">
+    <img src="Beauty1.jpg" alt="Performer A" />
+  </div>
+  <div class="talent-text-wrapper reveal-on-scroll">
+    <p>
+      <span class="highlight-red">The Power Entertainment is attuned to the pulse of the global entertainment world — where culture, innovation, and performance converge.</span>
+Our pursuit of excellence is reflected in every artist we represent — from deeply rooted, homegrown talent shaped by tradition and heritage, to exceptional international performers who define the forefront of music, dance, and specialty arts.
+Each name on our roster embodies not just skill, but spirit — a vibrant reflection of diversity, creativity, and unforgettable stage presence.
+We don't simply book talent — we curate transformative experiences that elevate events into memories and stages into moments of impact.
+    </p>
+  </div>
+</section>
+
+<!-- Второй артист -->
+<section class="talent-highlight reverse-layout">
+  <div class="project-card">
+    <img src="man1.jpg" alt="Performer B" />
+  </div>
+  <div class="talent-text-wrapper reveal-on-scroll">
+    <p>
+      <span class="highlight-red">At The Power Entertainment, our talent team is constantly scouting bold, 
+      captivating performers who bring fresh energy to the stage and elevate every experience.</span>
+    Each artist we work with is carefully curated through a refined selection process to ensure that only the most outstanding,
+     professional acts become part of your event.</p>
+    <p>We know that no two events are alike — which is why we tailor each performance to align with the atmosphere, emotion, and intention of your occasion.
+       With an unwavering commitment to quality, we don’t just deliver entertainment — we create unforgettable moments.</p>
+  </div>
+</section>
+
+
+<section id="contact" class="contact-section">
+  <h2>Elevate our relationships</h2>
+  <form action="https://formspree.io/f/xpwdbvav" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div class="social-links">
+    <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
+    <a href="https://facebook.com/yourpage" target="_blank">Facebook</a>
+  </div>
+</section>
+
+<script>
+let menuOpen = false;
+
+function toggleMiniMenu() {
+  const menu = document.getElementById('miniMenu');
+  menu.classList.toggle('show');
+  menuOpen = !menuOpen;
+}
+
+document.addEventListener('click', function (e) {
+  const menu = document.getElementById('miniMenu');
+  const button = document.getElementById('floatingButton');
+
+  if (menuOpen && !menu.contains(e.target) && !button.contains(e.target)) {
+    menu.classList.remove('show');
+    menuOpen = false;
+  }
+});
+
+// Перетаскивание
+// === DRAGGABLE FLOATING BUTTON (mouse + touch) ===
+const wrapper = document.getElementById('floatingMenu');
+const button = document.getElementById('floatingButton');
+let isDragging = false;
+let offsetX = 0, offsetY = 0;
+
+// 🖱️ Desktop
+button.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - wrapper.getBoundingClientRect().left;
+  offsetY = e.clientY - wrapper.getBoundingClientRect().top;
+  document.body.style.userSelect = 'none';
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    wrapper.style.left = `${e.clientX - offsetX}px`;
+    wrapper.style.top = `${e.clientY - offsetY}px`;
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  document.body.style.userSelect = '';
+});
+
+// 📱 Touch Devices
+button.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  const touch = e.touches[0];
+  offsetX = touch.clientX - wrapper.getBoundingClientRect().left;
+  offsetY = touch.clientY - wrapper.getBoundingClientRect().top;
+}, { passive: true });
+
+document.addEventListener('touchmove', (e) => {
+  if (isDragging) {
+    const touch = e.touches[0];
+    wrapper.style.left = `${touch.clientX - offsetX}px`;
+    wrapper.style.top = `${touch.clientY - offsetY}px`;
+  }
+}, { passive: false });
+
+document.addEventListener('touchend', () => {
+  isDragging = false;
+});
+
+</script>
+
+<script>
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+</script>
+<script>
+function updateOrientationNotice() {
+  const notice = document.getElementById("rotate-notice");
+  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+  const isPhone = window.innerWidth < 1024;
+
+  if (isPortrait && isPhone) {
+    notice.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  } else {
+    notice.style.display = "none";
+    document.body.style.overflow = "";
+  }
+}
+
+window.addEventListener("DOMContentLoaded", updateOrientationNotice);
+window.addEventListener("orientationchange", updateOrientationNotice);
+window.addEventListener("resize", updateOrientationNotice);
+</script>
+
+<script>
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+  function revealOnScroll() {
+    for (const el of revealElements) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.85) {
+        el.classList.add('visible');
+      } else {
+        el.classList.remove('visible');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+</script>
+
+</body>
+

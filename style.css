@@ -1,0 +1,991 @@
+/* Основной стиль */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Логотип */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0 40px;
+  width: 100%;
+}
+
+.logo {
+  display: block;
+  width: 50vw; /* занимает треть ширины экрана */
+  max-width: 680px;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 280px;
+  }
+
+  header {
+    padding: 20px 0 20px;
+  }
+}
+
+
+
+/* Красный цвет заголовков секций */
+/* Красим заголовки About, UNIQUE, SUBLIME, LUMINATE */
+.main h2,
+.section-box h2,
+.video-overlay h2,
+.sublime-text h2,
+.luminate-text h2 {
+  color: #b30000;
+}
+
+
+/* Боковое меню */
+.sidebar-button {
+  width:100%;
+  padding: 14px 0;
+  background: transparent;
+  color: white;
+  text-align: center;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+aside {
+  width: 150px; /* или сколько нужно */
+  background: rgba(0, 0, 0, 0.6); /* можно настроить */
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+  backdrop-filter: blur(8px); /* мутное стекло */
+}
+
+
+.sidebar-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* Основной контейнер */
+main {
+  margin-left: 0px;
+  html {
+  scroll-behavior: smooth;
+}
+
+}
+
+.background-strip {
+  background-color: none;
+  padding: 40px;
+  min-height: 100vh;
+}
+
+.section-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+}
+
+.section-box h2 {
+  font-size: 38px;
+  margin-bottom: 30px;
+}
+
+.section-box p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Видео секция */
+.video-section {
+  padding: 170px 0;
+  position: relative;
+}
+
+.video-container {
+  position: relative;
+  width: 80%;
+  height: 90vh;
+  margin: 0 auto;
+  overflow: hidden;
+  transition: height 1s ease, width 1s ease;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.5);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%);
+  color: #fff;
+  max-width: 420px;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.video-overlay h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.video-overlay p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.video-container.shrink {
+  height: 500px;
+}
+
+.video-container.shrink .video-overlay {
+  opacity: 1;
+}
+
+
+/* Анимация при скролле */
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.collage-overlay.visible {
+  opacity: 1;
+}
+.sublime-block {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 59px;
+}
+
+.sublime-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  padding-bottom: 60px;
+  margin: 0 auto;
+}
+
+.sublime-left img,
+.sublime-right img {
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.sublime-right img:first-child {
+  height: 420px;
+}
+
+.sublime-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 50px;
+}
+
+.sublime-text {
+  color: white;
+  max-width: 550px;
+  font-size: 1.15rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.6s ease, transform 1.6s ease;
+}
+
+.sublime-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sublime-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #b30000;
+}
+
+/* 🔧 Адаптация под мобильные устройства */
+@media (max-width: 768px) {
+  .sublime-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .sublime-left img,
+  .sublime-right img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .sublime-text {
+    max-width: 90%;
+    text-align: center;
+  }
+}
+
+
+
+#about {
+  scroll-margin-top: 22vh; /* половина экрана */
+}
+
+.logo {
+  opacity: 0;
+  transition: opacity 1.6s ease-in-out;
+}
+
+.logo.visible {
+  opacity: 1;
+}
+.luminate-block {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.luminate-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.luminate-left img,
+.luminate-right img {
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.luminate-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.luminate-text {
+  color: white;
+  max-width: 550px;
+  font-size: 1.15rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.6s ease, transform 1.6s ease;
+}
+
+.luminate-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.luminate-text h2 {
+  font-size: 2rem;          /* такой же, как у SUBLIME */
+  font-weight: 700;         /* жирный */
+  text-transform: uppercase;
+  color: #b30000;
+}
+.lineage-block {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.lineage-wrapper {
+  display: flex;
+  border-radius: 12px;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+
+}
+
+.lineage-left img {
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+}
+.lineage-right img {
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.culture-img {
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 500px;
+  width: 100%;
+}
+
+.culture-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lineage-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.lineage-text {
+  color: white;
+  max-width: 550px;
+  font-size: 1.15rem;
+  opacity: 0;
+  margin-top: -20px;
+  transform: translateY(50px);
+  transition: opacity 1.6s ease, transform 1.6s ease;
+}
+
+.lineage-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lineage-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #b30000;
+}
+
+
+
+@media (max-width: 768px) {
+  .lineage-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .lineage-text {
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .cultural2 {
+    display: none; /* или адаптивное расположение ниже */
+  }
+}
+
+.navigation-buttons {
+  background-color: transparent;
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 120px; /* ⬅️ стало вместо 200px */
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.nav-button {
+  max-width: 300px;     /* ограничиваем максимальную ширину */
+  width: 100%;          /* адаптируем к экрану */
+  height: auto;
+  transition: transform 0.9s ease;
+  display: block;
+}
+
+/* При наведении — масштабирование */
+.nav-button:hover {
+  transform: scale(1.05);
+}
+
+/* Эффект мерцания Talent Booking */
+.flicker-talent {
+  animation: flickerTalent 2s infinite;
+}
+
+/* Эффект мерцания Special Projects */
+.flicker-special {
+  animation: flickerSpecial 3s infinite;
+}
+
+/* Ключевые кадры для Talent Booking */
+@keyframes flickerTalent {
+  0%, 18%, 22%, 25%, 63%, 70%, 100% {
+    opacity: 1;
+  }
+  19%, 23%, 64% {
+    opacity: 0.3;
+  }
+}
+
+/* Ключевые кадры для Special Projects */
+@keyframes flickerSpecial {
+  0%, 20%, 60%, 100% {
+    opacity: 1;
+  }
+  19%, 23%, 64% {
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-button {
+    max-width: 240px;
+  }
+
+  .button-wrapper {
+    gap: 20px;
+  }
+
+  .navigation-buttons {
+    padding: 280px 0;
+  }
+}
+
+
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; 
+  content: attr(data-text);
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('carbon-bg.jpg'); /* твой фон */
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 1;
+  z-index: -1;
+}
+.light-text {
+  font-family: 'Helvetica Neue', 'Segoe UI', 'Roboto', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 20px;
+  color: transparent;
+  -webkit-text-stroke: 0.6px rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+
+.main-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: -50px;
+  opacity: 0;
+  animation: fadeInMenu 1.5s ease forwards;
+  animation-delay: 3s;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: center;
+}
+
+.nav-menu a {
+  font-size: 15px;
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+
+  @media (max-width: 480px) {
+  .nav-menu a {
+    font-size: 11px;
+    padding: 2px 4px;
+  }
+
+  .nav-menu {
+    gap: 6px;
+  }
+}
+
+  .nav-menu {
+    gap: -10px;
+  }
+
+  .nav-menu a {
+    font-size: 13px;
+  }
+
+
+.main-menu a {
+  font-family: 'Helvetica Neue', 'Segoe UI', 'Roboto', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.main-menu a:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+@keyframes fadeInMenu {
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* ЭФФЕКТ ЗАДЕРЖАННОГО ПОЯВЛЕНИЯ */
+.delayed-appearance {
+  opacity: 0;
+  animation: fadeInMenu 1.5s ease forwards;
+  animation-delay: 2s;
+}
+
+@keyframes fadeInMenu {
+  to {
+    opacity: 1;
+  }
+}
+.logo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1px; /* отступ от верха экрана */
+}
+
+.main-menu {
+  position: absolute;
+  top: 535px; /* или подбирай значение вручную */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.main-menu a {
+  font-family: 'Helvetica Neue', 'Segoe UI', 'Roboto', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.main-menu a:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+@keyframes fadeInMenu {
+  to {
+    opacity: 1;
+  }
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('carbon-bg.jpg'); /* твой фон */
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 1;
+  z-index: -1;
+}
+
+.contact-section {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: rgba(83, 83, 83, 0.199);
+  color: rgb(165, 3, 3);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  margin: 80px auto;
+  max-width: 800px;
+}
+
+
+
+
+.contact-section h2 {
+  font-size: 1.5rem; /* или такой же, как в боковом меню */
+  font-weight: 500;  /* чуть тоньше для элегантности */
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(151, 16, 16, 0.85);
+  margin-bottom: 30px;
+  font-family: 'Helvetica Neue', sans-serif; /* или шрифт как в меню */
+}
+
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-section input,
+.contact-section textarea {
+  width: 90%;
+  max-width: 500px;
+  margin: 10px 0;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.contact-section input::placeholder,
+.contact-section textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-section button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-section button:hover {
+  background-color: #eaeaea;
+}
+
+.social-links {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.social-links a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.sidebar a.active {
+  color: #be1010c4;
+  font-weight: bold;
+  text-shadow: 0 0 4px rgba(132, 12, 12, 0.6);
+}
+.sidebar a {
+  margin: 0 16px; /* горизонтальный отступ между кнопками */
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+.floating-menu-wrapper {
+  position: fixed;
+  top: 30%;
+  left: 20px;
+  z-index: 1000;
+}
+
+.floating-button {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+  animation: pulse 2s infinite;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
+  70% { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+
+.floating-menu-wrapper {
+  position: fixed;
+  top: 30%;
+  left: 40px; /* больше отступа от левого края */
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.floating-button {
+  width: 26px;
+  height: 26px;
+  background-color: rgba(152, 12, 12, 0.461);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(155, 7, 7, 0.451);
+  animation: pulse 2s infinite;
+  cursor: pointer;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+
+
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
+  70% { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+
+.mini-menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 14px;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-family: 'Helvetica Neue', sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mini-menu.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mini-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin: 6px 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* плавное появление каждого пункта по очереди */
+.mini-menu.show a:nth-child(1) {
+  transition-delay: 0.1s;
+  opacity: 1;
+  transform: translateY(0);
+}
+.mini-menu.show a:nth-child(2) {
+  transition-delay: 0.2s;
+  opacity: 1;
+  transform: translateY(0);
+}
+.mini-menu.show a:nth-child(3) {
+  transition-delay: 0.3s;
+  opacity: 1;
+  transform: translateY(0);
+}
+.mini-menu.show a:nth-child(4) {
+  transition-delay: 0.4s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mini-menu a:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 80vw;
+    max-width: 300px;
+  }
+.nav-menu {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* меньше отступов между пунктами */
+  padding: 0 10px;
+}
+
+.nav-menu a {
+  font-size: 12px; /* уменьшенный размер текста */
+  padding: 4px 6px;
+  white-space: nowrap;
+}
+
+  .main-menu {
+    flex-direction: column;
+    gap: 20px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    position: static;
+  }
+
+  .main-menu a {
+    font-size: 14px;
+  }
+
+  .sublime-wrapper,
+  .luminate-wrapper,
+  .lineage-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lineage-text,
+  .sublime-text,
+  .luminate-text {
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .cultural1,
+  .cultural2,
+  .sublime-image,
+  .luminate-left img,
+  .luminate-right img {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: static !important;
+  }
+
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 30px;
+    padding: 100px 0;
+  }
+
+  .nav-button {
+    width: 80% !important;
+    max-width: 350px;
+    height: auto;
+  }
+
+  .contact-section {
+    padding: 40px 20px;
+    margin: 40px auto;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .social-links a {
+    width: 100%;
+    text-align: center;
+  }
+
+#rotate-notice {
+  position: fixed;
+  inset: 0;
+  background-color: black;
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  z-index: 9999;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.rotate-icon-animated {
+  width: 64px;
+  height: 64px;
+  background: url('phone-icon.svg') no-repeat center center;
+  background-size: contain;
+  animation: rotatePhone 2s ease-in-out infinite alternate;
+  margin-bottom: 20px;
+}
+
+@keyframes rotatePhone {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+}
+
+.blurred-text {
+  filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.4s ease;
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Special Project</title>
+  <link rel="stylesheet" href="special-projects.css" />
+</head>
+<body>
+  <div id="rotate-notice">
+    <div class="rotate-icon-animated"></div>
+    <p>Please rotate your device</p>
+  </div>
+
+  <div class="floating-menu-wrapper" id="floatingMenu">
+    <div class="floating-button" id="floatingButton" onclick="toggleMiniMenu()"></div>
+    <div class="mini-menu" id="miniMenu">
+      <a href="index.html#about">ABOUT</a>
+      <a href="talent-booking.html">TALENT</a>
+      <a href="special-projects.html">PROJECTS</a>
+      <a href="index.html#contact">CONTACT</a>
+    </div>
+  </div>
+
+  <section class="intro-video-section">
+    <div class="intro-video-wrapper">
+      <video autoplay muted loop class="intro-video">
+        <source src="intro-sp.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="intro-overlay">
+        <h1 class="intro-title">SPECIAL PROJECTS</h1>
+      </div>
+    </div>
+  </section>
+
+  <div style="padding: 30px;">
+    <button onclick="window.history.back()" style="background-color: #a9191900; color: #ffcc70; border: 2px solid #aa1c1c00; padding: 10px 20px; font-size: 19px; cursor: pointer; border-radius: 10px; transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#444'" onmouseout="this.style.backgroundColor='#222'">
+      ← Back
+    </button>
+  </div>
+
+  <div class="content-container">
+    <section class="projects-grid">
+
+      <section class="talent-highlight reveal-on-scroll">
+        <div class="project-card meellee-card">
+          <img src="meellee-cover.PNG" alt="MEELLEE Orchestra">
+        </div>
+        <div class="talent-text-wrapper reveal-on-scroll">
+          <p><span class="highlight-red">MEELLEE Symphonic Orchestra is not just an orchestra 
+          — it’s a living sound organism where every chord carries intention, and every pause holds weight.</span>
+          Founded under the vision of The Power Entertainment,
+          MEELLEE represents the highest form of live performance — from timeless symphonies to genre-blending innovations, 
+          from intimate passages to grand sonic eruptions.
+          We don’t just gather musicians — we unite masters who transform sheet music into pure experience.
+          Every MEELLEE performance is an event where precision meets drama, and sound becomes emotion made tangible.
+          Whether on an international stage, in a private residence, or under an open sky,
+          MEELLEE creates moments where music isn’t just heard — it’s lived.</p>
+        </div>
+      </section>
+
+      <section class="talent-highlight reveal-on-scroll">
+        <div class="project-card lightelle-card">
+          <img src="lightelle-sp.PNG" alt="Lightelle Project">
+        </div>
+        <div class="talent-text-wrapper blurred reveal-on-scroll">
+          <p><span class="highlighted-red">Lightelle is where music meets light. Where presence becomes poetry.</span>
+          In a space dimly lit by dozens of vintage bulbs, every note glows — not just in sound, but in spirit.
+          Lightelle is an immersive experience where musicians perform classical masterpieces, 
+          reimagined contemporary works, meditative scores, and spoken word — all surrounded by warm, golden light.
+          Listeners don’t just attend — they are gently enveloped by the arrangement of light, 
+          placed among glowing bulbs that illuminate the room, the stage, and the silence between the sounds.
+          Each performance becomes a sanctuary: a place for reflection, love confessions, healing moments,
+          and deep connection through sound and space.
+          <span class="highlighted-red">Lightelle is not just a concert. It’s a luminous ritual.</span></p>
+        </div>
+      </section>
+
+      <section class="talent-highlight reveal-on-scroll">
+        <div class="project-card miliebrity-card">
+          <img src="womans-sp.jpg" alt="Miliebrity Orchestra">
+        </div>
+        <div class="talent-text-wrapper reveal-on-scroll">
+          <p><span class="highlight-red">MILEBRITY Women’s Orchestra.</span>
+          Milebrity is more than an orchestra — it is a celebration of artistry, strength, and grace in harmony.
+          Formed by women, performed by women, and led with purpose,
+          Milebrity brings a bold, refined energy to the stage — blending classical repertoire, modern arrangements,
+          and original works with a distinctly feminine voice.
+          Each performance radiates elegance and power, offering audiences not only world-class musicianship, but a statement:
+          <span class="highlight-red">that music shaped by women carries a depth all its own.</span>
+          From grand halls to intimate salons, Milebrity creates an atmosphere where tradition meets modernity, 
+          and where the brilliance of women in music takes center stage.</p>
+        </div>
+      </section>
+    </section>
+  </div>
+
+  <section id="contact" class="contact-section">
+    <h2>Elevate our relationships</h2>
+    <form action="https://formspree.io/f/xpwdbvav" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="social-links">
+      <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
+      <a href="https://facebook.com/yourpage" target="_blank">Facebook</a>
+    </div>
+  </section>
+
+  <script>
+    let menuOpen = false;
+    function toggleMiniMenu() {
+      const menu = document.getElementById('miniMenu');
+      menu.classList.toggle('show');
+      menuOpen = !menuOpen;
+    }
+
+    document.addEventListener('click', function (e) {
+      const menu = document.getElementById('miniMenu');
+      const button = document.getElementById('floatingButton');
+      if (menuOpen && !menu.contains(e.target) && !button.contains(e.target)) {
+        menu.classList.remove('show');
+        menuOpen = false;
+      }
+    });
+
+    const wrapper = document.getElementById('floatingMenu');
+    const button = document.getElementById('floatingButton');
+    let isDragging = false;
+    let offsetX = 0, offsetY = 0;
+
+    button.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = e.clientX - wrapper.getBoundingClientRect().left;
+      offsetY = e.clientY - wrapper.getBoundingClientRect().top;
+      document.body.style.userSelect = 'none';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        wrapper.style.left = `${e.clientX - offsetX}px`;
+        wrapper.style.top = `${e.clientY - offsetY}px`;
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      document.body.style.userSelect = '';
+    });
+
+    button.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      const touch = e.touches[0];
+      offsetX = touch.clientX - wrapper.getBoundingClientRect().left;
+      offsetY = touch.clientY - wrapper.getBoundingClientRect().top;
+    }, { passive: true });
+
+    document.addEventListener('touchmove', (e) => {
+      if (isDragging) {
+        const touch = e.touches[0];
+        wrapper.style.left = `${touch.clientX - offsetX}px`;
+        wrapper.style.top = `${touch.clientY - offsetY}px`;
+      }
+    }, { passive: false });
+
+    document.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+
+    function updateOrientationNotice() {
+      const notice = document.getElementById("rotate-notice");
+      const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+      const isPhone = window.innerWidth < 1024;
+      if (isPortrait && isPhone) {
+        notice.style.display = "flex";
+        document.body.style.overflow = "hidden";
+      } else {
+        notice.style.display = "none";
+        document.body.style.overflow = "";
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", updateOrientationNotice);
+    window.addEventListener("orientationchange", updateOrientationNotice);
+    window.addEventListener("resize", updateOrientationNotice);
+
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    function revealOnScroll() {
+      for (const el of revealElements) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
+        }
+      }
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+  </script>
+</body>
+</html>
