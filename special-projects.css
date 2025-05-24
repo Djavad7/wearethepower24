@@ -6,6 +6,12 @@ body {
   background: url('background-tb.PNG') no-repeat center center fixed;
   background-size: cover;
   color: #f5f5f5;
+  /* ✅ Чёрный фон на всю ширину + safe-area */
+background-color: #000;
+padding-top: env(safe-area-inset-top);
+padding-bottom: env(safe-area-inset-bottom);
+padding-left: env(safe-area-inset-left);
+padding-right: env(safe-area-inset-right)
 }
 
 /* Intro video */
