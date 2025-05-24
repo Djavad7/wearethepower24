@@ -915,22 +915,69 @@ body.no-scroll {
 /* ...твои остальные стили сверху... */
 
 @media screen and (max-width: 768px) {
-  .mini-menu {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Перестройка секций в колонку */
+  .talent-highlight,
+  .talent-section,
+  .lineage-wrapper {
     flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 20px;
+  }
+
+  .project-card,
+  .talent-image img,
+  .cultural1,
+  .cultural2 {
+    max-width: 340px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .talent-text-wrapper,
+  .lineage-text,
+  .contact-section {
+    font-size: 16px !important;
+    padding: 0 15px !important;
+    text-align: center !important;
+  }
+
+  .intro-title {
+    font-size: 36px !important;
+    letter-spacing: -2px !important;
+  }
+
+  .contact-section {
+    padding: 40px 10px !important;
+    margin: 40px auto !important;
+    max-width: 100% !important;
+  }
+
+  .mini-menu {
+    min-width: 140px;
     align-items: center;
-    min-width: 120px;
-    padding: 12px;
+    padding: 10px;
   }
 
   .mini-menu a {
     font-size: 14px;
     white-space: nowrap;
-    text-align: center;
     width: 100%;
+    text-align: center;
   }
 
   .floating-button {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .floating-menu-wrapper {
+    left: 12px !important;
+    top: 60% !important;
   }
 }
+
