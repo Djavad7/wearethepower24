@@ -912,14 +912,26 @@ body.no-scroll {
 }
 
 
-/* ...твои остальные стили сверху... */
-
 @media screen and (max-width: 768px) {
   body {
     overflow-x: hidden;
   }
 
-  /* Перестройка секций в колонку */
+  .main-container,
+  .section,
+  .content-container,
+  .projects-grid,
+  .intro-video-wrapper,
+  .lineage-block,
+  .lineage-wrapper {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  /* Перестройка секций */
   .talent-highlight,
   .talent-section,
   .lineage-wrapper {
