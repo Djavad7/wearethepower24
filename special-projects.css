@@ -687,3 +687,26 @@ body.no-scroll {
   overflow: hidden;
   touch-action: none;
 }
+
+
+@media screen and (max-width: 768px) {
+  .mini-menu {
+    flex-direction: column !important;
+    align-items: center;
+    min-width: 120px;
+    padding: 12px;
+  }
+
+  .mini-menu a {
+    font-size: 14px;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+  }
+
+  .floating-button {
+    width: 24px;
+    height: 24px;
+  }
+}
+
