@@ -13,15 +13,15 @@
   <p>Please rotate your device</p>
 </div>
 
-  <div class="floating-menu-wrapper" id="floatingMenu">
-  <div class="floating-button" id="floatingButton" onclick="toggleMiniMenu()"></div>
-  <div class="mini-menu" id="miniMenu">
-    <a href="index.html#about">ABOUT</a>
-    <a href="talent-booking.html">TALENT</a>
-    <a href="special-projects.html">PROJECTS</a>
-    <a href="index.html#contact">CONTACT</a>
+  <div class="floating-menu-wrapper" id="floatingMenu" style="top: 40%; left: 115px;">
+   <div class="floating-button" id="floatingButton"></div>
+    <div class="mini-menu" id="miniMenu">
+      <a href="index.html#about">ABOUT</a>
+      <a href="talent-booking.html">TALENT</a>
+      <a href="special-projects.html">PROJECTS</a>
+      <a href="index.html#contact">CONTACT</a>
+    </div>
   </div>
-</div>
 
 
 
@@ -46,7 +46,7 @@
    <!-- Первый артист -->
 <section class="talent-highlight">
   <div class="project-card">
-    <img src="beauty1.jpg" alt="Performer A" />
+    <img src="Beauty1.jpg" alt="Performer A" />
   </div>
   <div class="talent-text-wrapper reveal-on-scroll">
     <p>
@@ -91,81 +91,80 @@ We don't simply book talent — we curate transformative experiences that elevat
 </section>
 
 <script>
- <script>
   // 📍 Меню: Открытие/Закрытие
-  let menuOpen = false;
+    let menuOpen = false;
+let isDragging = false;
+let moved = false;
+let offsetX = 0, offsetY = 0;
 
-  function toggleMiniMenu() {
-    const menu = document.getElementById('miniMenu');
-    menu.classList.toggle('show');
-    menuOpen = !menuOpen;
+const wrapper = document.getElementById('floatingMenu');
+const button = document.getElementById('floatingButton');
+const menu = document.getElementById('miniMenu');
+
+function toggleMiniMenu() {
+  menu.classList.toggle('show');
+  menuOpen = !menuOpen;
+}
+
+// Закрытие при клике вне меню
+document.addEventListener('click', function (e) {
+  if (menuOpen && !menu.contains(e.target) && !button.contains(e.target)) {
+    menu.classList.remove('show');
+    menuOpen = false;
   }
+});
 
-  document.addEventListener('click', function (e) {
-    const menu = document.getElementById('miniMenu');
-    const button = document.getElementById('floatingButton');
-    if (menuOpen && !menu.contains(e.target) && !button.contains(e.target)) {
-      menu.classList.remove('show');
-      menuOpen = false;
-    }
-  });
-</script>
-
-<script>
-  // 🎯 Перетаскиваемая кнопка (desktop + touch)
-  const wrapper = document.getElementById('floatingMenu');
-  const button = document.getElementById('floatingButton');
-  let isDragging = false, offsetX = 0, offsetY = 0;
-
-  // Desktop
+// === 🖱 Desktop
 button.addEventListener('mousedown', (e) => {
   isDragging = true;
+  moved = false;
   offsetX = e.clientX - wrapper.getBoundingClientRect().left;
   offsetY = e.clientY - wrapper.getBoundingClientRect().top;
-  document.body.classList.add('no-scroll');
   document.body.style.userSelect = 'none';
 });
 
-
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      wrapper.style.left = `${e.clientX - offsetX}px`;
-      wrapper.style.top = `${e.clientY - offsetY}px`;
-    }
-  });
-
-document.addEventListener('mouseup', () => {
-  isDragging = false;
-  document.body.classList.remove('no-scroll');
-  document.body.style.userSelect = '';
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    moved = true;
+    wrapper.style.left = `${e.clientX - offsetX}px`;
+    wrapper.style.top = `${e.clientY - offsetY}px`;
+  }
 });
 
-  // Touch
+document.addEventListener('mouseup', (e) => {
+  isDragging = false;
+  document.body.style.userSelect = '';
+  if (!moved && e.target === button) {
+    toggleMiniMenu(); // ✅ открываем только если не тянули
+  }
+});
+
+// === 📱 Touch
 button.addEventListener('touchstart', (e) => {
   isDragging = true;
+  moved = false;
   const touch = e.touches[0];
   offsetX = touch.clientX - wrapper.getBoundingClientRect().left;
   offsetY = touch.clientY - wrapper.getBoundingClientRect().top;
-  document.body.classList.add('no-scroll');
 }, { passive: true });
 
+document.addEventListener('touchmove', (e) => {
+  if (isDragging) {
+    moved = true;
+    const touch = e.touches[0];
+    wrapper.style.left = `${touch.clientX - offsetX}px`;
+    wrapper.style.top = `${touch.clientY - offsetY}px`;
+  }
+}, { passive: false });
 
-  document.addEventListener('touchmove', (e) => {
-    if (isDragging) {
-      const touch = e.touches[0];
-      wrapper.style.left = `${touch.clientX - offsetX}px`;
-      wrapper.style.top = `${touch.clientY - offsetY}px`;
-    }
-  }, { passive: false });
-
-document.addEventListener('touchend', () => {
+document.addEventListener('touchend', (e) => {
   isDragging = false;
-  document.body.classList.remove('no-scroll');
+  if (!moved && e.changedTouches[0].target === button) {
+    toggleMiniMenu(); // ✅ для тапа на телефоне
+  }
 });
 
-</script>
 
-<script>
   // 🔁 Всегда начинать сверху при обновлении
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
@@ -211,3 +210,4 @@ document.addEventListener('touchend', () => {
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
 </script>
+
