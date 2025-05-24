@@ -682,3 +682,9 @@ body.transitioning {
   opacity: 1;
   transform: translateY(0);
 }
+/* Отключение прокрутки при перетаскивании кнопки */
+body.no-scroll {
+  overflow: hidden;
+  touch-action: none;
+}
+
