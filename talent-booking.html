@@ -22,6 +22,9 @@
     <a href="index.html#contact">CONTACT</a>
   </div>
 </div>
+
+
+
  <section class="intro-video-section">
   <div class="intro-video-wrapper">
     <video autoplay muted loop class="intro-video">
@@ -35,21 +38,10 @@
 </section>
 
 
-  <!-- Контент TALENT BOOKING -->
-<div style="padding: 20px;">
-  <button onclick="window.history.back()" style="
-    background-color: #22222200;
-    color: #ffcc70;
-    border: 2px solid #55555500;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.3s ease;
-  " onmouseover="this.style.backgroundColor='#444'" onmouseout="this.style.backgroundColor='#222'">
-    ← Back
-  </button>
+<div class="back-button-wrapper">
+  <button onclick="window.history.back()" class="back-button">← Back</button>
 </div>
+
 
    <!-- Первый артист -->
 <section class="talent-highlight">
@@ -99,99 +91,102 @@ We don't simply book talent — we curate transformative experiences that elevat
 </section>
 
 <script>
-let menuOpen = false;
+  // 📍 Меню: Открытие/Закрытие
+  let menuOpen = false;
 
-function toggleMiniMenu() {
-  const menu = document.getElementById('miniMenu');
-  menu.classList.toggle('show');
-  menuOpen = !menuOpen;
-}
+  function toggleMiniMenu() {
+    const menu = document.getElementById('miniMenu');
+    menu.classList.toggle('show');
+    menuOpen = !menuOpen;
+  }
 
-document.addEventListener('click', function (e) {
-  const menu = document.getElementById('miniMenu');
+  document.addEventListener('click', function (e) {
+    const menu = document.getElementById('miniMenu');
+    const button = document.getElementById('floatingButton');
+    if (menuOpen && !menu.contains(e.target) && !button.contains(e.target)) {
+      menu.classList.remove('show');
+      menuOpen = false;
+    }
+  });
+</script>
+
+<script>
+  // 🎯 Перетаскиваемая кнопка (desktop + touch)
+  const wrapper = document.getElementById('floatingMenu');
   const button = document.getElementById('floatingButton');
+  let isDragging = false, offsetX = 0, offsetY = 0;
 
-  if (menuOpen && !menu.contains(e.target) && !button.contains(e.target)) {
-    menu.classList.remove('show');
-    menuOpen = false;
-  }
-});
+  // Desktop
+  button.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    offsetX = e.clientX - wrapper.getBoundingClientRect().left;
+    offsetY = e.clientY - wrapper.getBoundingClientRect().top;
+    document.body.style.userSelect = 'none';
+  });
 
-// Перетаскивание
-// === DRAGGABLE FLOATING BUTTON (mouse + touch) ===
-const wrapper = document.getElementById('floatingMenu');
-const button = document.getElementById('floatingButton');
-let isDragging = false;
-let offsetX = 0, offsetY = 0;
+  document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      wrapper.style.left = `${e.clientX - offsetX}px`;
+      wrapper.style.top = `${e.clientY - offsetY}px`;
+    }
+  });
 
-// 🖱️ Desktop
-button.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  offsetX = e.clientX - wrapper.getBoundingClientRect().left;
-  offsetY = e.clientY - wrapper.getBoundingClientRect().top;
-  document.body.style.userSelect = 'none';
-});
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+    document.body.style.userSelect = '';
+  });
 
-document.addEventListener('mousemove', (e) => {
-  if (isDragging) {
-    wrapper.style.left = `${e.clientX - offsetX}px`;
-    wrapper.style.top = `${e.clientY - offsetY}px`;
-  }
-});
-
-document.addEventListener('mouseup', () => {
-  isDragging = false;
-  document.body.style.userSelect = '';
-});
-
-// 📱 Touch Devices
-button.addEventListener('touchstart', (e) => {
-  isDragging = true;
-  const touch = e.touches[0];
-  offsetX = touch.clientX - wrapper.getBoundingClientRect().left;
-  offsetY = touch.clientY - wrapper.getBoundingClientRect().top;
-}, { passive: true });
-
-document.addEventListener('touchmove', (e) => {
-  if (isDragging) {
+  // Touch
+  button.addEventListener('touchstart', (e) => {
+    isDragging = true;
     const touch = e.touches[0];
-    wrapper.style.left = `${touch.clientX - offsetX}px`;
-    wrapper.style.top = `${touch.clientY - offsetY}px`;
+    offsetX = touch.clientX - wrapper.getBoundingClientRect().left;
+    offsetY = touch.clientY - wrapper.getBoundingClientRect().top;
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (isDragging) {
+      const touch = e.touches[0];
+      wrapper.style.left = `${touch.clientX - offsetX}px`;
+      wrapper.style.top = `${touch.clientY - offsetY}px`;
+    }
+  }, { passive: false });
+
+  document.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+</script>
+
+<script>
+  // 🔁 Всегда начинать сверху при обновлении
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+</script>
+
+<script>
+  // 📱 Обработка поворота экрана на мобильных
+  function updateOrientationNotice() {
+    const notice = document.getElementById("rotate-notice");
+    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+    const isPhone = window.innerWidth < 1024;
+
+    if (isPortrait && isPhone) {
+      notice.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    } else {
+      notice.style.display = "none";
+      document.body.style.overflow = "";
+    }
   }
-}, { passive: false });
 
-document.addEventListener('touchend', () => {
-  isDragging = false;
-});
-
+  window.addEventListener("DOMContentLoaded", updateOrientationNotice);
+  window.addEventListener("orientationchange", updateOrientationNotice);
+  window.addEventListener("resize", updateOrientationNotice);
 </script>
 
 <script>
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-};
-</script>
-<script>
-function updateOrientationNotice() {
-  const notice = document.getElementById("rotate-notice");
-  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-  const isPhone = window.innerWidth < 1024;
-
-  if (isPortrait && isPhone) {
-    notice.style.display = "flex";
-    document.body.style.overflow = "hidden";
-  } else {
-    notice.style.display = "none";
-    document.body.style.overflow = "";
-  }
-}
-
-window.addEventListener("DOMContentLoaded", updateOrientationNotice);
-window.addEventListener("orientationchange", updateOrientationNotice);
-window.addEventListener("resize", updateOrientationNotice);
-</script>
-
-<script>
+  // ✨ Анимация появления при скролле
   const revealElements = document.querySelectorAll('.reveal-on-scroll');
 
   function revealOnScroll() {
@@ -208,6 +203,4 @@ window.addEventListener("resize", updateOrientationNotice);
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
 </script>
-
-</body>
 
