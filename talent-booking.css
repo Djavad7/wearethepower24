@@ -797,3 +797,9 @@ body {
     font-size: 14px;
   }
 }
+/* Отключение прокрутки при перетаскивании кнопки */
+body.no-scroll {
+  overflow: hidden;
+  touch-action: none;
+}
+
