@@ -37,7 +37,12 @@ padding-right: env(safe-area-inset-right)
   height: 100%;
   object-fit: cover;
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* <-- вот эта строка делает видео "не нажимаемым" */
 }
+
 
 .intro-overlay {
   position: absolute;
