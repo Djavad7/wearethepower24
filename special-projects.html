@@ -110,7 +110,7 @@
     </div>
   </section>
 
-  <script>
+   <script>
     let menuOpen = false;
     function toggleMiniMenu() {
       const menu = document.getElementById('miniMenu');
@@ -132,12 +132,14 @@
     let isDragging = false;
     let offsetX = 0, offsetY = 0;
 
-    button.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      offsetX = e.clientX - wrapper.getBoundingClientRect().left;
-      offsetY = e.clientY - wrapper.getBoundingClientRect().top;
-      document.body.style.userSelect = 'none';
-    });
+button.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - wrapper.getBoundingClientRect().left;
+  offsetY = e.clientY - wrapper.getBoundingClientRect().top;
+  document.body.classList.add('no-scroll');
+  document.body.style.userSelect = 'none';
+});
+
 
     document.addEventListener('mousemove', (e) => {
       if (isDragging) {
@@ -146,17 +148,21 @@
       }
     });
 
-    document.addEventListener('mouseup', () => {
-      isDragging = false;
-      document.body.style.userSelect = '';
-    });
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  document.body.classList.remove('no-scroll');
+  document.body.style.userSelect = '';
+});
 
-    button.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      const touch = e.touches[0];
-      offsetX = touch.clientX - wrapper.getBoundingClientRect().left;
-      offsetY = touch.clientY - wrapper.getBoundingClientRect().top;
-    }, { passive: true });
+
+button.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  const touch = e.touches[0];
+  offsetX = touch.clientX - wrapper.getBoundingClientRect().left;
+  offsetY = touch.clientY - wrapper.getBoundingClientRect().top;
+  document.body.classList.add('no-scroll');
+}, { passive: true });
+
 
     document.addEventListener('touchmove', (e) => {
       if (isDragging) {
@@ -166,9 +172,11 @@
       }
     }, { passive: false });
 
-    document.addEventListener('touchend', () => {
-      isDragging = false;
-    });
+document.addEventListener('touchend', () => {
+  isDragging = false;
+  document.body.classList.remove('no-scroll');
+});
+
 
     window.onbeforeunload = function () {
       window.scrollTo(0, 0);
