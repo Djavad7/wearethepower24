@@ -881,13 +881,5 @@ body.no-scroll {
     left: 12px !important;
     top: 60% !important;
   }
-  .intro-video-wrapper {
-  height: 18vh !important; /* или 20vh, подстрой по вкусу */
-}
 
-.intro-title {
-  font-size: 28px !important;
-  letter-spacing: -1px !important;
-  line-height: 1.2 !important;
-}
 
