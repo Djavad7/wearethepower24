@@ -91,6 +91,7 @@ We don't simply book talent — we curate transformative experiences that elevat
 </section>
 
 <script>
+ <script>
   // 📍 Меню: Открытие/Закрытие
   let menuOpen = false;
 
@@ -117,12 +118,14 @@ We don't simply book talent — we curate transformative experiences that elevat
   let isDragging = false, offsetX = 0, offsetY = 0;
 
   // Desktop
-  button.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - wrapper.getBoundingClientRect().left;
-    offsetY = e.clientY - wrapper.getBoundingClientRect().top;
-    document.body.style.userSelect = 'none';
-  });
+button.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - wrapper.getBoundingClientRect().left;
+  offsetY = e.clientY - wrapper.getBoundingClientRect().top;
+  document.body.classList.add('no-scroll');
+  document.body.style.userSelect = 'none';
+});
+
 
   document.addEventListener('mousemove', (e) => {
     if (isDragging) {
@@ -131,18 +134,21 @@ We don't simply book talent — we curate transformative experiences that elevat
     }
   });
 
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    document.body.style.userSelect = '';
-  });
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  document.body.classList.remove('no-scroll');
+  document.body.style.userSelect = '';
+});
 
   // Touch
-  button.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    const touch = e.touches[0];
-    offsetX = touch.clientX - wrapper.getBoundingClientRect().left;
-    offsetY = touch.clientY - wrapper.getBoundingClientRect().top;
-  }, { passive: true });
+button.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  const touch = e.touches[0];
+  offsetX = touch.clientX - wrapper.getBoundingClientRect().left;
+  offsetY = touch.clientY - wrapper.getBoundingClientRect().top;
+  document.body.classList.add('no-scroll');
+}, { passive: true });
+
 
   document.addEventListener('touchmove', (e) => {
     if (isDragging) {
@@ -152,9 +158,11 @@ We don't simply book talent — we curate transformative experiences that elevat
     }
   }, { passive: false });
 
-  document.addEventListener('touchend', () => {
-    isDragging = false;
-  });
+document.addEventListener('touchend', () => {
+  isDragging = false;
+  document.body.classList.remove('no-scroll');
+});
+
 </script>
 
 <script>
@@ -203,4 +211,5 @@ We don't simply book talent — we curate transformative experiences that elevat
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
 </script>
+
 
