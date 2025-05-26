@@ -239,11 +239,11 @@ body::before {
 }
 
 .sublime-wrapper {
-  display: absolute;
+  display: flex;
   flex-direction: row;
   align-items: flex-end;
   gap: 40px;
-  max-width: 11500px;
+  max-width: 1150px;
   width: 95%;
   margin: 0 auto;
   padding-bottom: 60px;
