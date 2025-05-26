@@ -136,7 +136,7 @@ body::before {
 .unique-video-container {
   position: relative;
   width: 90%;
-  max-width: 1300px;
+  max-width: 1250px;
   height: 50vh;
   margin: 0 auto;
   overflow: hidden;
@@ -242,9 +242,9 @@ body::before {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  gap: 40px;
-  max-width: 1200px;
-  width: 100%;
+  gap: 35px;
+  max-width: 11500px;
+  width: 95%;
   margin: 0 auto;
   padding-bottom: 60px;
 }
@@ -252,7 +252,7 @@ body::before {
 .sublime-left img,
 .sublime-column img {
   border-radius: 12px;
-  width: 100%;
+  width: 95%;
   max-width: 500px;
   height: auto;
   object-fit: cover;
@@ -310,8 +310,8 @@ body::before {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  gap: 40px;
-  max-width: 1200px;
+  gap: 35px;
+  max-width: 1150px;
   width: 100%;
 }
 
@@ -319,7 +319,7 @@ body::before {
 .luminate-right img {
   border-radius: 12px;
   max-width: 500px;
-  width: 100%;
+  width: 95%;
   height: auto;
   object-fit: cover;
 }
