@@ -288,7 +288,7 @@ body::before {
   flex-direction: row;
   align-items: flex-end;
   gap: 40px;
-  max-width: 1150px;
+  max-width: 100%
   width: 100%;
   margin: 0 auto;
   padding-bottom: 60px;
@@ -356,7 +356,7 @@ body::before {
   flex-direction: row;
   align-items: flex-end;
   gap: 35px;
-  max-width: 1150px;
+  max-width: 100%
   width: 100%;
 }
 
@@ -430,7 +430,7 @@ body::before {
   display: flex;
   flex-direction: row;
   gap: 20px; /* 🔽 уменьшено */
-  max-width: 1200px;
+  max-width: 100%
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -505,7 +505,7 @@ body::before {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%
 }
 
 .nav-button {
