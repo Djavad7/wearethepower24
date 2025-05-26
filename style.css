@@ -242,9 +242,9 @@ body::before {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  gap: 35px;
+  gap: 40px;
   max-width: 11500px;
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
   padding-bottom: 60px;
 }
@@ -252,7 +252,7 @@ body::before {
 .sublime-left img,
 .sublime-column img {
   border-radius: 12px;
-  width: 95%;
+  width: 100%;
   max-width: 500px;
   height: auto;
   object-fit: cover;
