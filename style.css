@@ -289,7 +289,7 @@ body::before {
   align-items: flex-end;
   gap: 40px;
   max-width: 1150px;
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   padding-bottom: 60px;
 }
@@ -364,7 +364,7 @@ body::before {
 .luminate-right img {
   border-radius: 12px;
   max-width: 500px;
-  width: 95%;
+  width: 100%;
   height: auto;
   object-fit: cover;
 }
@@ -414,7 +414,7 @@ body::before {
   }
 
   .luminate-text {
-    max-width: 90%;
+    max-width: 100%;
     text-align: center;
   }
 }
