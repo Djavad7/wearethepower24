@@ -91,6 +91,29 @@ body::before {
 }
 
 /* 📱 Мобильная адаптация */
+@media screen and (max-width: 480px) {
+  .main-menu {
+    flex-direction: column;
+    align-items: center;
+    position: static;
+    margin-top: 20px;
+    transform: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .main-menu a {
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+}
+
+.main-menu a:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
 
 /* 🔁 Анимация появления меню */
 .delayed-appearance {
@@ -898,77 +921,3 @@ body.no-scroll {
     text-align: center;
   }
 }
-/* Адаптация для мобильных */
-@media (max-width: 768px) {
-  .button-wrapper {
-    gap: 40px;
-    padding: 0 10px;
-  }
-
-  .nav-button {
-    max-width: 90%;
-  }
-}
-/*CONTACT SECTION*/
-
-
-
-/*MOBILE ADAPTATION*/
-@media screen and (max-width: 768px) {
-  .lineage-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-/* Адаптация для мобильных устройств */
-@media (max-width: 768px) {
-  .luminate-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-@media (max-width: 768px) {
-  .sublime-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .sublime-left img,
-  .sublime-column img 
-
-
-/* Адаптация */
-@media (max-width: 768px) {
-  .section-box {
-    padding: 25px;
-  }
-
-
-/* 📱 Мобильная адаптация */
-@media screen and (max-width: 480px) {
-  .main-menu {
-    flex-direction: column;
-    align-items: center;
-    position: static;
-    margin-top: 20px;
-    transform: none;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .main-menu a {
-    font-size: 15px;
-    text-align: center;
-    letter-spacing: 1px;
-  }
-}
-
-.main-menu a:hover {
-  opacity: 0.8;
-  transform: scale(1.05);
-}
-
-/* 🔁 Анимация появления меню */
