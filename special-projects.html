@@ -136,13 +136,6 @@ document.addEventListener('click', function (e) {
 });
 
 // === 🖱 Desktop
-button.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  moved = false;
-  offsetX = e.clientX - wrapper.getBoundingClientRect().left;
-  offsetY = e.clientY - wrapper.getBoundingClientRect().top;
-  document.body.style.userSelect = 'none';
-});
 
 document.addEventListener('mousemove', (e) => {
   if (isDragging) {
