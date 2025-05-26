@@ -1,14 +1,3 @@
-/* === GLOBAL FIXES FOR MOBILE STABILITY === */
-html, body {
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
 /* 🌌 Фон сайта */
 body {
   margin: 0;
@@ -32,6 +21,7 @@ body::before {
   opacity: 1;
   z-index: -1;
 }
+
 /* 🔺 Логотип */
 .logo-header {
   display: flex;
@@ -39,6 +29,7 @@ body::before {
   align-items: center;
   margin-top: 1px;
 }
+
 .logo {
   display: block;
   width: 50vw;
@@ -47,6 +38,7 @@ body::before {
   opacity: 0;
   transition: opacity 1.6s ease-in-out;
 }
+
 .logo.visible {
   opacity: 1;
 }
@@ -91,22 +83,6 @@ body::before {
 }
 
 /* 📱 Мобильная адаптация */
-
-
-/* 🔁 Анимация появления меню */
-.delayed-appearance {
-  opacity: 0;
-  animation: fadeInMenu 1.5s ease forwards;
-  animation-delay: 2s;
-}
-
-@keyframes fadeInMenu {
-  to {
-    opacity: 1;
-  }
-}
-
-/* 📱 Мобильная адаптация */
 @media screen and (max-width: 480px) {
   .main-menu {
     flex-direction: column;
@@ -135,7 +111,7 @@ body::before {
   max-width: 850px;
   margin: 0 auto 100px;
   background-color: rgba(255, 255, 255, 0.05);
-  padding: 25px;
+  padding: 35px;
   border-radius: 14px;
   backdrop-filter: blur(6px);
   color: rgb(255, 255, 255);
@@ -211,7 +187,6 @@ body::before {
     padding: 25px;
   }
 
-
   .section-box h2 {
     font-size: 28px;
     text-align: center;
@@ -267,37 +242,17 @@ body::before {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  gap: 40px;
-  max-width: 100%
-  width: 100%;
+  gap: 35px;
+  max-width: 1150px;
+  width: 95%;
   margin: 0 auto;
   padding-bottom: 60px;
 }
-@media screen and (max-width: 768px) {
-  .lineage-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-/* Адаптация для мобильных устройств */
-@media (max-width: 768px) {
-  .luminate-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-/* Адаптация */
-@media (max-width: 768px) {
-  .section-box {
-    padding: 25px;
-  }
 
 .sublime-left img,
 .sublime-column img {
   border-radius: 12px;
-  width: 100%;
+  width: 95%;
   max-width: 500px;
   height: auto;
   object-fit: cover;
@@ -324,6 +279,13 @@ body::before {
   color: #b30000;
 }
 
+@media (max-width: 768px) {
+  .sublime-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
   .sublime-left img,
   .sublime-column img {
     max-width: 100%;
@@ -349,7 +311,7 @@ body::before {
   flex-direction: row;
   align-items: flex-end;
   gap: 35px;
-  max-width: 100%
+  max-width: 1150px;
   width: 100%;
 }
 
@@ -357,7 +319,7 @@ body::before {
 .luminate-right img {
   border-radius: 12px;
   max-width: 500px;
-  width: 100%;
+  width: 95%;
   height: auto;
   object-fit: cover;
 }
@@ -392,7 +354,12 @@ body::before {
 }
 
 /* Адаптация для мобильных устройств */
-
+@media (max-width: 768px) {
+  .luminate-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
 
   .luminate-left img,
   .luminate-right img {
@@ -402,7 +369,7 @@ body::before {
   }
 
   .luminate-text {
-    max-width: 100%;
+    max-width: 90%;
     text-align: center;
   }
 }
@@ -418,7 +385,7 @@ body::before {
   display: flex;
   flex-direction: row;
   gap: 20px; /* 🔽 уменьшено */
-  max-width: 100%
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -460,7 +427,12 @@ body::before {
 }
 
 /* Mobile Adaptation */
-
+@media screen and (max-width: 768px) {
+  .lineage-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 
   .lineage-text {
     text-align: center;
@@ -488,7 +460,7 @@ body::before {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  max-width: 100%
+  max-width: 1200px;
 }
 
 .nav-button {
@@ -516,6 +488,18 @@ body::before {
   }
   10%, 40%, 90% {
     opacity: 0.4;
+  }
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+  .button-wrapper {
+    gap: 40px;
+    padding: 0 10px;
+  }
+
+  .nav-button {
+    max-width: 90%;
   }
 }
 
@@ -756,20 +740,8 @@ body.no-scroll {
   touch-action: none;
 }
 
-.highlight-red {
-  color: #ff5f5f;
-}
 
-.highlight-gold {
-  color: #ffedcc;
-}
-
-.highlight-white {
-  color: #ffffff;
-}
-
-
-/* === MOBILE STYLES (up to 768px) === */
+/* === MOBILE STYLES === */
 @media screen and (max-width: 768px) {
   .logo {
     width: 80vw;
@@ -779,17 +751,15 @@ body.no-scroll {
   .main-menu {
     flex-direction: column;
     gap: 20px;
-    position: static;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
     margin-top: 20px;
-    transform: none;
-    width: 100%;
-    align-items: center;
+    position: static;
   }
 
   .main-menu a {
     font-size: 14px;
-    letter-spacing: 1px;
-    text-align: center;
   }
 
   .sublime-wrapper,
@@ -873,42 +843,35 @@ body.no-scroll {
   }
 }
 
-/* === FINE TUNING FOR iPhone 14 Pro (max-width: 430px) === */
-@media screen and (max-width: 430px) {
-  html, body {
-    width: 100%;
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
+/* Extra mobile fixes */
+.blurred-text {
+  filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.4s ease;
+}
 
+@media screen and (max-width: 420px) {
   .main-menu {
-    position: relative;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 20px 0;
-    gap: 16px;
-    transform: none;
-    top: auto;
-    left: auto;
+    gap: 18px;
+    margin-top: 20px;
+    opacity: 1 !important;
+    animation: none !important;
   }
 
   .main-menu a {
     font-size: 15px;
     letter-spacing: 1px;
-    padding: 4px 0;
+    padding: 4px 8px;
+  }
+
+  .talent-highlight {
+    flex-direction: column !important;
+    align-items: center;
     text-align: center;
-    width: 100%;
-  }
-
-  .logo {
-    width: 80vw;
-    max-width: 300px;
-  }
-
-  .floating-menu-wrapper {
-    left: 20px !important;
   }
 
   .project-card {
@@ -920,6 +883,33 @@ body.no-scroll {
     padding: 0 12px;
     font-size: 16px;
     line-height: 1.5;
-    text-align: center;
   }
+}
+
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Отключение прокрутки при перетаскивании кнопки */
+body.no-scroll {
+  overflow: hidden;
+  touch-action: none;
+}
+.highlight-red {
+  color: #ff5f5f;
+}
+
+.highlight-gold {
+  color: #ffedcc;
+}
+
+.highlight-white {
+  color: #ffffff;
 }
