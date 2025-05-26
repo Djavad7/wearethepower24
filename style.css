@@ -100,28 +100,25 @@ body::before {
 }
 
 
-/* === ABOUT + UNIQUE === */
-
-/* Общая обёртка */
 .background-strip {
   background-color: transparent;
   padding: 60px 20px;
   min-height: 100vh;
 }
 
-/* Блок ABOUT */
-.section-box {
-  max-width: 900px;
-  margin: 0 auto 60px;
+/* === ABOUT === */
+.about-box {
+  max-width: 850px;
+  margin: 0 auto 100px;
   background-color: rgba(255, 255, 255, 0.05);
-  padding: 40px;
+  padding: 35px;
   border-radius: 14px;
   backdrop-filter: blur(6px);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
-.section-box h2 {
-  font-size: 18px;
+.about-box h2 {
+  font-size: 26px;
   color: #b30000;
   margin-bottom: 30px;
   text-transform: uppercase;
@@ -129,19 +126,14 @@ body::before {
   letter-spacing: 1px;
 }
 
-.section-box p {
-  font-size: 16px;
-  line-height: 1.6;
+.about-box p {
+  font-size: 18px;
+  line-height: 1.7;
   margin-bottom: 16px;
 }
 
-/* Видео секция UNIQUE */
-.video-section {
-  padding: 120px 0;
-  position: relative;
-}
-
-.video-container {
+/* === UNIQUE === */
+.unique-video-container {
   position: relative;
   width: 90%;
   max-width: 1300px;
@@ -152,42 +144,42 @@ body::before {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-.video-container video {
+.unique-video-container video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
-  filter: brightness(0.5);
+  object-fit: cover;
+  pointer-events: none;
+  filter: brightness(0.4);
 }
 
-.video-overlay {
+.unique-video-overlay {
   position: absolute;
   top: 50%;
   left: 8%;
   transform: translateY(-50%);
-  color: #fff;
   max-width: 420px;
   text-align: left;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-.video-container.shrink .video-overlay {
   opacity: 1;
+  color: white; /* общий белый цвет — можно оставить */
 }
 
-.video-overlay h2 {
-  font-size: 25px;
+/* Заголовок h2 — красный */
+.unique-video-overlay h2 {
+  font-size: 26px;
   font-weight: bold;
   margin-bottom: 14px;
-  color: #b30000;
+  color: #b30000; /* ✅ Отдельный цвет */
   text-transform: uppercase;
 }
 
-.video-overlay p {
-  font-size: 16px;
+/* Текст — белый */
+.unique-video-overlay p {
+  font-size: 18px;
   line-height: 1.6;
+  color: white; /* ✅ Белый цвет отдельно */
 }
+
 
 /* Адаптация */
 @media (max-width: 768px) {
@@ -910,95 +902,15 @@ body.no-scroll {
   overflow: hidden;
   touch-action: none;
 }
-
-
-@media screen and (max-width: 768px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  .main-container,
-  .section,
-  .content-container,
-  .projects-grid,
-  .intro-video-wrapper,
-  .lineage-block,
-  .lineage-wrapper {
-    width: 100% !important;
-    max-width: 100vw !important;
-    box-sizing: border-box;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-  }
-
-  /* Перестройка секций */
-  .talent-highlight,
-  .talent-section,
-  .lineage-wrapper {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: 20px;
-  }
-
-  .project-card,
-  .talent-image img,
-  .cultural1,
-  .cultural2 {
-    max-width: 340px !important;
-    width: 100% !important;
-    margin: 0 auto !important;
-  }
-
-  .talent-text-wrapper,
-  .lineage-text,
-  .contact-section {
-    font-size: 16px !important;
-    padding: 0 15px !important;
-    text-align: center !important;
-  }
-
-  .intro-title {
-    font-size: 36px !important;
-    letter-spacing: -2px !important;
-  }
-
-  .contact-section {
-    padding: 40px 10px !important;
-    margin: 40px auto !important;
-    max-width: 100% !important;
-  }
-
-  .mini-menu {
-    min-width: 140px;
-    align-items: center;
-    padding: 10px;
-  }
-
-  .mini-menu a {
-    font-size: 14px;
-    white-space: nowrap;
-    width: 100%;
-    text-align: center;
-  }
-
-  .floating-button {
-    width: 22px;
-    height: 22px;
-  }
-
-  .floating-menu-wrapper {
-    left: 12px !important;
-    top: 60% !important;
-  }
-}
-.intro-video-wrapper {
-  height: 18vh !important; /* или 20vh, подстрой по вкусу */
+.highlight-red {
+  color: #ff5f5f;
 }
 
-.intro-title {
-  font-size: 28px !important;
-  letter-spacing: -1px !important;
-  line-height: 1.2 !important;
+.highlight-gold {
+  color: #ffedcc;
+}
+
+.highlight-white {
+  color: #ffffff;
 }
 
