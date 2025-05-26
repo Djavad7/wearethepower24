@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Power Entertainment</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -39,30 +39,39 @@
 
   <main>
     <div class="background-strip">
-      
-      <!-- About Section -->
-      <section id="about" class="reveal-on-scroll">
-        <div class="section-box">
-          <h2>About Us</h2>
-          <p><strong>At The Power Entertainment, we don’t follow trends — we create them.</strong></p>
-          Based in the United Arab Emirates, we are a dedicated entertainment company delivering standout talent and exclusive creative experiences across the region.
-          Our team brings together producers, artistic curators, and project managers with a shared mission: to turn every event into a vivid, memorable experience that leaves a lasting impact. We focus on originality, precision, and emotional connection — the three pillars behind every show we deliver.
-          Clients value us for our clear communication, flexible execution, and deep understanding of what it takes to produce high-end entertainment with meaning. We bring energy, detail, and trust to the table — every time.
-          <p>We are proudly licensed in the United Arab Emirates and actively preparing for regional expansion — including Saudi Arabia and the greater Middle East.
-          This next chapter will allow us to serve a wider network of partners and help shape the future of live entertainment across the region’s most influential markets.</p>
-        </div>
-      </section>
 
-      <!-- UNIQUE TALENTS VIDEO Section -->
-      <section id="unique-talents" class="video-section reveal-on-scroll">
-        <div class="video-container">
-          <video src="FirstforTalentBooking.mp4" autoplay muted loop playsinline></video>
-          <div class="video-overlay">
-            <h2>UNIQUE</h2>
-            <p>We believe in the power of individuality. Every artist is handpicked not just for talent, but for the emotion, authenticity, and unforgettable presence they bring to the stage.</p>
-          </div>
-        </div>
-      </section>
+
+      
+    <div class="background-strip">
+
+  <!-- About Section -->
+  <section id="about" class="reveal-on-scroll">
+    <div class="about-box">
+      <h2>About Us</h2>
+      <p><strong>At The Power Entertai<span class="highlight-red">n</span>ment, we don’t follow trends — <span class="highlight-red">we create them.</span></strong></p>
+      <p>Based in the United Arab Emirates, we are a dedicated entertainment company delivering standout talent and exclusive creative experiences across the region.
+      Our team brings together producers, artistic curators, and project managers with a shared mission: to turn every event into a vivid, 
+      memorable experience that leaves a lasting impact. We focus on originality, precision, and emotional connection — the three pillars behind every show we deliver.
+      Clients value us for our clear communication, flexible execution, and deep understanding of what it takes to produce high-end entertainment with meaning.
+       We bring energy, detail, and trust to the table — every time.
+      <strong><span class="highlight-gold">We are proudly licensed in the United Arab Emirates and actively preparing for regional expansion — including Saudi Arabia and the greater Middle East.</span></strong>
+      This next chapter will allow us to serve a wider network of partners and help shape the future of live entertainment across the region’s most influential markets.</p>
+    </div>
+  </section>
+
+  <!-- UNIQUE TALENTS VIDEO Section -->
+  <section id="unique-talents" class="video-section reveal-on-scroll">
+    <div class="unique-video-container">
+      <video src="FirstforTalentBooking.mp4" autoplay muted loop playsinline></video>
+      <div class="unique-video-overlay">
+        <h2>UNIQUE</h2>
+        <p>We believe in the power of individuality. Every artist is handpicked not just for talent, but for the emotion, authenticity, and unforgettable presence they bring to the stage.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
 
 
 
@@ -213,13 +222,6 @@ document.addEventListener('click', function (e) {
 });
 
 // === 🖱 Desktop
-button.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  moved = false;
-  offsetX = e.clientX - wrapper.getBoundingClientRect().left;
-  offsetY = e.clientY - wrapper.getBoundingClientRect().top;
-  document.body.style.userSelect = 'none';
-});
 
 document.addEventListener('mousemove', (e) => {
   if (isDragging) {
