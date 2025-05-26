@@ -1,3 +1,14 @@
+/* === GLOBAL FIXES FOR MOBILE STABILITY === */
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* 🌌 Фон сайта */
 body {
   margin: 0;
@@ -62,6 +73,43 @@ body::before {
   letter-spacing: 2px;
   text-decoration: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.main-menu a:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+/* 🔁 Анимация появления меню */
+.delayed-appearance {
+  opacity: 0;
+  animation: fadeInMenu 1.5s ease forwards;
+  animation-delay: 2s;
+}
+
+@keyframes fadeInMenu {
+  to {
+    opacity: 1;
+  }
+}
+
+/* 📱 Мобильная адаптация */
+@media screen and (max-width: 480px) {
+  .main-menu {
+    flex-direction: column;
+    align-items: center;
+    position: static;
+    margin-top: 20px;
+    transform: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .main-menu a {
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
 }
 
 .main-menu a:hover {
