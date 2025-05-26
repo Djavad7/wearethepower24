@@ -32,7 +32,6 @@ body::before {
   opacity: 1;
   z-index: -1;
 }
-
 /* 🔺 Логотип */
 .logo-header {
   display: flex;
@@ -40,7 +39,6 @@ body::before {
   align-items: center;
   margin-top: 1px;
 }
-
 .logo {
   display: block;
   width: 50vw;
@@ -49,7 +47,6 @@ body::before {
   opacity: 0;
   transition: opacity 1.6s ease-in-out;
 }
-
 .logo.visible {
   opacity: 1;
 }
