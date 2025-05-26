@@ -156,7 +156,7 @@ body::before {
   max-width: 850px;
   margin: 0 auto 100px;
   background-color: rgba(255, 255, 255, 0.05);
-  padding: 35px;
+  padding: 25px;
   border-radius: 14px;
   backdrop-filter: blur(6px);
   color: rgb(255, 255, 255);
