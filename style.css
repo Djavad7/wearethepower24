@@ -985,7 +985,7 @@ body::before {
   .sublime-text {
     padding: 10px !important;
     font-size: 6px !important;
-    line-height: 0.6 !important;
+    line-height: 1.2 !important;
   }
 
   .sublime-text h2 {
