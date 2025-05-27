@@ -910,20 +910,8 @@ body::before {
   }
 }
 
-@media screen and (max-width: 920px) and (max-height: 430px) {
-  #about .about-box {
-    font-size: 12px !important;
-    line-height: 1.2 !important;
-    padding: 12px 16px !important;
-  }
-
-  #about .about-box h2 {
-    font-size: 16px !important;
-    margin-bottom: 10px !important;
-  }
-
-  #about .about-box strong {
-    font-size: 14px !important;
+@media screen and (orientation: landscape) and (max-height: 430px) {
+  body {
+    background-color: red !important;
   }
 }
-
