@@ -775,3 +775,14 @@ body::before {
     text-align: center;
   }
 }
+.highlight-red {
+  color: #ff5f5f;
+}
+
+.highlight-gold {
+  color: #ffedcc;
+}
+
+.highlight-white {
+  color: #ffffff;
+}
