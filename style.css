@@ -911,21 +911,9 @@ body::before {
 }
 
 @media screen and (orientation: landscape) {
-  body #about .about-box {
-    font-size: 6px !important;
-    line-height: 0.5 !important;
-    padding: 10px 14px !important;
-  }
-
-  body #about .about-box h2 {
-    font-size: 16px !important;
-    margin-bottom: 8px !important;
-  }
-
-  body #about .about-box strong {
-    font-size: 14px !important;
+  * {
+    font-size: 8px !important;
   }
 }
-
 
 
