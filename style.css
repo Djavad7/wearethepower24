@@ -908,3 +908,16 @@ body::before {
     margin-top: -100px !important;/* было, вероятно, около 40–60px */
   }
 }
+@media screen and (max-height: 430px) and (orientation: landscape) {
+  .main-menu {
+    margin-top: -10px !important;
+    font-size: 12px !important;         /* уменьшаем размер шрифта */
+    gap: 10px !important;               /* уменьшаем расстояние между пунктами */
+  }
+
+  .main-menu a {
+    padding: 0 6px !important;          /* сжимаем отступы внутри ссылок */
+    letter-spacing: 0.5px !important;   /* плотнее буквы */
+  }
+}
+
