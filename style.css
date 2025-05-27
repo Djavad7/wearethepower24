@@ -1102,13 +1102,13 @@ body::before {
   }
 
   .button-wrapper {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 3vw !important;
-    flex-wrap: nowrap !important;
+  display: flex;
+  justify-content: center;
+  gap: 20px !important; /* ← увеличь это значение для большего расстояния */
+  flex-wrap: nowrap;
+  padding: 10px 20px !important;
   }
+
 
   .nav-button {
     max-width: 33vw !important;
