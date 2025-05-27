@@ -959,4 +959,42 @@ body::before {
     width: 109vw !important;
   }
 }
+@media screen and (max-width: 740px) and (max-height: 430px) and (orientation: landscape) {
+  /* SUBLIME block layout fix for mobile landscape */
+  .sublime-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 1vw !important;
+  }
+
+  .sublime-left,
+  .sublime-column {
+    flex: 1 1 50% !important;
+    max-width: 50% !important;
+  }
+
+  .sublime-image {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+
+  .sublime-text {
+    padding: 10px !important;
+    font-size: 6px !important;
+    line-height: 0.6 !important;
+  }
+
+  .sublime-text h2 {
+    font-size: 18px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .sublime-text p {
+    font-size: 14px !important;
+  }
+}
 
