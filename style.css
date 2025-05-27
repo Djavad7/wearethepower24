@@ -909,7 +909,7 @@ body::before {
   }
 }
 #about .about-box {
-  font-size: 10px !important;
+  font-size: 3px !important;
   line-height: 0.7 !important;
   padding: 15px 18px !important;
 }
