@@ -140,6 +140,21 @@ body::before {
   opacity: 0.8;
   transform: scale(1.05);
 }
+.main-menu a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0%;
+  background: rgb(138, 9, 9);
+  transition: width 0.3s ease;
+  margin: auto;
+  margin-top: 4px;
+}
+
+.main-menu a:hover::after {
+  width: 100%;
+}
+
 
 /* 🔁 Анимация появления меню */
 .delayed-appearance {
