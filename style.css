@@ -910,20 +910,10 @@ body::before {
   }
 }
 
- @media screen and (max-height: 430px) and (orientation: landscape) {
-  #about .about-box {
+@media screen and (orientation: landscape) {
+  .about-box {
+    background: red !important; /* проверка */
     font-size: 4px !important;
-    line-height: 0.5 !important;
-    padding: 15px 18px !important;
-  }
-
-  #about .about-box h2 {
-    font-size: 16px !important;
-    margin-bottom: 12px !important;
-  }
-
-  #about .about-box strong {
-    font-size: 14px !important;
   }
 }
 
