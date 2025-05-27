@@ -937,4 +937,26 @@ body::before {
     max-width: 45vw !important;
   }
 }
+@media screen and (max-width: 740px) and (max-height: 430px) and (orientation: landscape) {
+  /* Подстройка overlay-текста в UNIQUE */
+  .unique-video-overlay {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    padding: 20px !important;
+  }
+
+  .unique-video-overlay h2 {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .unique-video-overlay p {
+    font-size: 14px !important;
+  }
+
+  /* Немного удлиняем видео */
+  .unique-video-container video {
+    width: 105vw !important;
+  }
+}
 
