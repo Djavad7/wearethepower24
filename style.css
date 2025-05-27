@@ -143,7 +143,7 @@ body::before {
 .main-menu a::after {
   content: '';
   display: block;
-  height: 2px;
+  height: 1px;
   width: 0%;
   background: rgb(138, 9, 9);
   transition: width 0.3s ease;
