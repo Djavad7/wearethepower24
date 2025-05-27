@@ -1111,7 +1111,7 @@ body::before {
   }
 
   .nav-button {
-    max-width: 42vw !important;
+    max-width: 33vw !important;
     height: auto !important;
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.2) !important;
     transition: transform 0.3s ease !important;
