@@ -912,8 +912,8 @@ body::before {
 
 @media screen and (orientation: landscape) {
   body #about .about-box {
-    font-size: 12px !important;
-    line-height: 1.2 !important;
+    font-size: 6px !important;
+    line-height: 0.5 !important;
     padding: 10px 14px !important;
   }
 
