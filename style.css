@@ -1105,6 +1105,7 @@ body::before {
     display: flex !important;
     flex-direction: row !important;
     justify-content: center !important;
+    gap: 20px !important;
     align-items: center !important;
     gap: 3vw !important;
     flex-wrap: nowrap !important;
