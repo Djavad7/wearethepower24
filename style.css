@@ -801,3 +801,41 @@ body::before {
 .highlight-white {
   color: #ffffff;
 }
+
+#rotate-notice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
+
+.rotate-icon-animated {
+  width: 64px;
+  height: 64px;
+  border: 4px solid white;
+  border-radius: 50%;
+  border-top: 4px solid transparent;
+  animation: rotate 1.5s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#rotate-notice p {
+  color: white;
+  font-size: 18px;
+  font-family: sans-serif;
+  margin: 0;
+}
