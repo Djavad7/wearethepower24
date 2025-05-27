@@ -907,3 +907,84 @@ body.no-scroll {
   }
 }
 
+
+
+/* === TALENT BOOKING PAGE MOBILE LANDSCAPE ADAPTATION === */
+@media screen and (max-width: 740px) and (max-height: 430px) and (orientation: landscape) {
+
+  /* 🔄 Вступительное видео */
+  .intro-video-wrapper {
+    height: 45vh !important;
+  }
+
+  .intro-title {
+    font-size: 22px !important;
+    letter-spacing: 1px !important;
+  }
+
+  /* 🔄 Обратная кнопка */
+  .back-button-wrapper {
+    margin: 10px 0 !important;
+  }
+
+  .back-button {
+    font-size: 14px !important;
+    padding: 6px 14px !important;
+  }
+
+  /* 🔄 Текст артистов */
+  .talent-text-wrapper {
+    font-size: 6.5px !important;
+    line-height: 0.6 !important;
+    padding: 20px !important;
+  }
+
+  .talent-text-wrapper span {
+    font-size: 7px !important;
+  }
+
+  .talent-highlight img {
+    max-width: 45vw !important;
+    height: auto !important;
+  }
+
+  /* 🔄 Contact Section */
+  #contact h2 {
+    font-size: 16px !important;
+    margin-bottom: 12px !important;
+  }
+
+  #contact input,
+  #contact textarea {
+    font-size: 12px !important;
+    padding: 8px !important;
+  }
+
+  #contact button {
+    font-size: 14px !important;
+    padding: 8px 16px !important;
+  }
+
+  .social-links a {
+    font-size: 12px !important;
+    margin: 0 6px !important;
+  }
+
+  /* 🔄 Мини-меню */
+  .mini-menu a {
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+  }
+
+  /* 🔄 Картинки */
+  .project-card img {
+    width: 100% !important;
+    max-height: 35vh !important;
+    object-fit: cover !important;
+  }
+
+  /* Общие отступы */
+  section {
+    margin-bottom: 30px !important;
+  }
+}
