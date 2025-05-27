@@ -956,7 +956,7 @@ body::before {
 
   /* Немного удлиняем видео */
   .unique-video-container video {
-    width: 105vw !important;
+    width: 109vw !important;
   }
 }
 
