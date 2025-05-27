@@ -806,34 +806,32 @@ body::before {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9999;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background: black;
   color: white;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
   text-align: center;
-  font-family: sans-serif;
-  font-size: 18px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1.2rem;
   padding: 20px;
 }
 
-.rotate-icon-animated {
+.rotate-icon {
+  width: 80px;
+  height: auto;
   margin-bottom: 20px;
+  animation: rotateHint 2.5s infinite ease-in-out;
 }
 
-
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-#rotate-notice p {
-  color: white;
-  font-size: 18px;
-  font-family: sans-serif;
-  margin: 0;
+@keyframes rotateHint {
+  0% { transform: rotate(0deg); opacity: 1; }
+  25% { transform: rotate(90deg); opacity: 1; }
+  50% { transform: rotate(90deg); opacity: 0.7; }
+  75% { transform: rotate(0deg); opacity: 1; }
+  100% { transform: rotate(0deg); opacity: 1; }
 }
