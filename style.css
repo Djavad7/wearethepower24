@@ -903,24 +903,3 @@ body::before {
   }
 
 }
-@media screen and (max-height: 430px) and (orientation: landscape) {
-  .main-menu {
-    margin-top: -100px !important;/* было, вероятно, около 40–60px */
-  }
-}
-#about .about-box {
-  font-size: 10px !important;
-  line-height: 0.7 !important;
-  padding: 15px 18px !important;
-}
-
-#about .about-box h2 {
-  font-size: 16px !important;
-  margin-bottom: 12px !important;
-}
-
-#about .about-box strong {
-  font-size: 10px !important;
-}
-
-
