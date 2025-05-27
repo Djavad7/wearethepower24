@@ -905,6 +905,6 @@ body::before {
 }
 @media screen and (max-height: 430px) and (orientation: landscape) {
   .main-menu {
-    margin-top: -100px; /* было, вероятно, около 40–60px */
+    margin-top: -100px !important;/* было, вероятно, около 40–60px */
   }
 }
