@@ -899,3 +899,22 @@ body.no-scroll {
     top: 60% !important;
   }
 }
+@media screen and (max-width: 768px) {
+  html, body {
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    background-color: transparent !important;
+    background-image: url('background-tb.PNG') !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+  }
+
+  .intro-video-section {
+    width: 100vw !important;
+    margin: 0 auto !important;
+  }
+}
