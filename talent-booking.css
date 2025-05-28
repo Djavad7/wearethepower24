@@ -12,13 +12,23 @@ body {
   padding: 0;
 }
 .talent-body {
+  position: relative;
   background: url('background-tb.PNG') center center / cover no-repeat fixed;
-  background-color: black; /* на случай, если картинка не загрузится */
+  background-color: black; /* fallback */
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+/* Удаляет отступы у html */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 
