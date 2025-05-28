@@ -902,10 +902,12 @@ body.no-scroll {
 @media screen and (max-width: 768px) {
   html, body {
     width: 100vw !important;
-    overflow-x: hidden !important;
+    height: 100vh !important;
     margin: 0 !important;
     padding: 0 !important;
-    background-color: black !important;
+    overflow-x: hidden !important;
+    background: url('background-tb.PNG') no-repeat center center fixed !important;
+    background-size: cover !important;
   }
 
   .intro-video-section,
@@ -913,16 +915,12 @@ body.no-scroll {
   .intro-video {
     width: 100vw !important;
     max-width: 100vw !important;
-    margin: 0 auto !important;
     border-radius: 0 !important;
-  }
-
-  video {
-    display: block;
   }
 
   body > * {
     max-width: 100vw !important;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
   }
 }
+
