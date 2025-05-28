@@ -899,9 +899,8 @@ body.no-scroll {
     top: 60% !important;
   }
 }
-@media screen and (max-width: 740px) and (max-height: 430px) and (orientation: landscape) {
-  body {
-    background: url('background-tb.PNG') no-repeat center center fixed !important;
-    background-size: cover !important;
-  }
+body {
+  background: url('background-tb.PNG') no-repeat center center fixed !important;
+  background-size: cover !important;
 }
+
