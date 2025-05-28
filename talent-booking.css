@@ -899,8 +899,4 @@ body.no-scroll {
     top: 60% !important;
   }
 }
-body {
-  background: url('background-tb.PNG') no-repeat center center fixed !important;
-  background-size: cover !important;
-}
 
