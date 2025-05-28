@@ -12,12 +12,15 @@ body {
   padding: 0;
 }
 .talent-body {
-  background: url('background-tb.PNG') no-repeat center center fixed;
-  background-size: cover;
-  background-color: #000; /* fallback */
+  background: url('background-tb.PNG') center center / cover no-repeat fixed;
+  background-color: black; /* на случай, если картинка не загрузится */
+  width: 100vw;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
 }
+
 
 /* === Intro Video Section === */
 .intro-video-section {
