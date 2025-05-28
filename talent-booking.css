@@ -935,3 +935,8 @@ body.no-scroll {
     font-size: 20px !important;
   }
 }
+body {
+  background: red url('background-tb.PNG') no-repeat center center fixed !important;
+  background-size: cover !important;
+}
+
