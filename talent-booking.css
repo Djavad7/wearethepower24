@@ -902,19 +902,27 @@ body.no-scroll {
 @media screen and (max-width: 768px) {
   html, body {
     width: 100vw !important;
-    height: 100vh !important;
+    overflow-x: hidden !important;
     margin: 0 !important;
     padding: 0 !important;
-    overflow-x: hidden !important;
-    background-color: transparent !important;
-    background-image: url('background-tb.PNG') !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
+    background-color: black !important;
   }
 
-  .intro-video-section {
+  .intro-video-section,
+  .intro-video-wrapper,
+  .intro-video {
     width: 100vw !important;
+    max-width: 100vw !important;
     margin: 0 auto !important;
+    border-radius: 0 !important;
+  }
+
+  video {
+    display: block;
+  }
+
+  body > * {
+    max-width: 100vw !important;
+    box-sizing: border-box;
   }
 }
