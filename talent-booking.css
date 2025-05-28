@@ -11,6 +11,15 @@ body {
   margin: 0;
   padding: 0;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: black; /* чёрный фон по умолчанию */
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+}
 
 /* === Intro Video Section === */
 .intro-video-section {
@@ -899,4 +908,8 @@ body.no-scroll {
     top: 60% !important;
   }
 }
-
+@media screen and (orientation: landscape) {
+  body, html {
+    background-color: #000 !important;
+  }
+}
