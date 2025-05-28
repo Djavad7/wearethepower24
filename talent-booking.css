@@ -913,3 +913,52 @@ body.no-scroll {
     background-color: #000 !important;
   }
 }
+
+@media screen and (max-width: 700px) and (orientation: landscape) {
+  #contact {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* фон под стиль сайта */
+    width: 100vw;
+    box-sizing: border-box;
+  }
+
+  #contact h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: white;
+    text-align: center;
+  }
+
+  #contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  #contact input,
+  #contact textarea {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 10px;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid white;
+    color: white;
+    border-radius: 6px;
+  }
+
+  #contact textarea {
+    height: 80px;
+    resize: none;
+  }
+
+  #contact button {
+    font-size: 15px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+}
