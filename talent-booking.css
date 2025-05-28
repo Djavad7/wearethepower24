@@ -901,42 +901,7 @@ body.no-scroll {
 }
 @media screen and (max-width: 740px) and (max-height: 430px) and (orientation: landscape) {
   body {
-    background: #000 url('background-tb.PNG') no-repeat center center fixed !important;
+    background: url('background-tb.PNG') no-repeat center center fixed !important;
     background-size: cover !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow-x: hidden !important;
-    color: white !important;
-  }
-
-  html {
-    background: transparent !important;
-  }
-
-  .intro-video-section {
-    background: transparent !important;
-  }
-
-  .intro-overlay h1 {
-    font-size: 18px !important;
-  }
-
-  .talent-text-wrapper {
-    font-size: 12px !important;
-    line-height: 1.2 !important;
-    padding: 15px !important;
-  }
-
-  .contact-section {
-    padding: 40px 20px !important;
-  }
-
-  .contact-section h2 {
-    font-size: 20px !important;
   }
 }
-body {
-  background: red url('background-tb.PNG') no-repeat center center fixed !important;
-  background-size: cover !important;
-}
-
