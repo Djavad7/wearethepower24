@@ -906,3 +906,20 @@ body.no-scroll {
     top: 60% !important;
   }
 }
+@media screen and (max-width: 740px) and (max-height: 430px) and (orientation: landscape) {
+  .intro-video-wrapper {
+    height: 100vh;
+  }
+
+  .intro-video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .intro-overlay h1.intro-title {
+    font-size: 20px !important;
+    padding: 0 20px;
+    text-align: center;
+  }
+}
