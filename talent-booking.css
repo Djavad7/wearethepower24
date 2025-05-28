@@ -11,6 +11,13 @@ body {
   margin: 0;
   padding: 0;
 }
+.talent-body {
+  background: url('background-tb.PNG') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #000; /* fallback */
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
 /* === Intro Video Section === */
 .intro-video-section {
