@@ -906,7 +906,7 @@ body.no-scroll {
     margin: 0 !important;
     padding: 0 !important;
     overflow-x: hidden !important;
-    background: url('background-tb.PNG') no-repeat center center fixed !important;
+    background: #111 url('background-tb.PNG') no-repeat center center fixed !important;
     background-size: cover !important;
   }
 
@@ -923,4 +923,3 @@ body.no-scroll {
     box-sizing: border-box !important;
   }
 }
-
