@@ -118,7 +118,8 @@
 </section>
 
 
-  <script>
+<script>
+  // 📍 Меню: Открытие/Закрытие
     let menuOpen = false;
 let isDragging = false;
 let moved = false;
@@ -185,42 +186,48 @@ document.addEventListener('touchend', (e) => {
 });
 
 
+  // 🔁 Всегда начинать сверху при обновлении
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+</script>
 
-    window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
-    };
+<script>
+  // 📱 Обработка поворота экрана на мобильных
+  function updateOrientationNotice() {
+    const notice = document.getElementById("rotate-notice");
+    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+    const isPhone = window.innerWidth < 1024;
 
-    function updateOrientationNotice() {
-      const notice = document.getElementById("rotate-notice");
-      const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-      const isPhone = window.innerWidth < 1024;
-      if (isPortrait && isPhone) {
-        notice.style.display = "flex";
-        document.body.style.overflow = "hidden";
+    if (isPortrait && isPhone) {
+      notice.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    } else {
+      notice.style.display = "none";
+      document.body.style.overflow = "";
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", updateOrientationNotice);
+  window.addEventListener("orientationchange", updateOrientationNotice);
+  window.addEventListener("resize", updateOrientationNotice);
+</script>
+
+<script>
+  // ✨ Анимация появления при скролле
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+  function revealOnScroll() {
+    for (const el of revealElements) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.85) {
+        el.classList.add('visible');
       } else {
-        notice.style.display = "none";
-        document.body.style.overflow = "";
+        el.classList.remove('visible');
       }
     }
+  }
 
-    window.addEventListener("DOMContentLoaded", updateOrientationNotice);
-    window.addEventListener("orientationchange", updateOrientationNotice);
-    window.addEventListener("resize", updateOrientationNotice);
-
-    const revealElements = document.querySelectorAll('.reveal-on-scroll');
-    function revealOnScroll() {
-      for (const el of revealElements) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.85) {
-          el.classList.add('visible');
-        } else {
-          el.classList.remove('visible');
-        }
-      }
-    }
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-    window.addEventListener('DOMContentLoaded', revealOnScroll);
-  </script>
-</body>
-</html>
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+</script>
