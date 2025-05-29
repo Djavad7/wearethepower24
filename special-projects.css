@@ -949,7 +949,6 @@ body.no-scroll {
     margin-right: 10px !important;
   }
 }
-  }
 .blurred {
   filter: blur(7px);
   pointer-events: none;
