@@ -20,6 +20,12 @@ html, body {
 * {
   box-sizing: border-box;
 }
+.blurred * {
+  filter: blur(8px) !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
 
 /* === Intro Video Section === */
 .intro-video-section {
@@ -207,14 +213,6 @@ html, body {
 }
 .reverse-layout {
   flex-direction: row-reverse;
-}
-
-.blurred {
-  filter: blur(8px) !important;
-  pointer-events: none !important;
-  user-select: none !important;
-}
-
 }
 
 .talent-section {
