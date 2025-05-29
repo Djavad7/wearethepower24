@@ -207,6 +207,14 @@ html, body {
 }
 .reverse-layout {
   flex-direction: row-reverse;
+
+
+  .blurred {
+  filter: blur(8px);
+  pointer-events: none; /* Чтобы нельзя было выделить или скопировать */
+  user-select: none;    /* Чтобы нельзя было выделить текст */
+}
+
 }
 
 .talent-section {
