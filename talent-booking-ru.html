@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preload" as="video" href="intro-tb.mp4" type="video/mp4">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>НАШИ ТАЛАНТЫ</title>
+  <link rel="stylesheet" href="talent-booking.css" />
+
+</head>
+  
+<body>
+
+ 
+  
+  <div id="rotate-notice">
+  <div class="rotate-icon-animated"></div>
+  <p>Пожалуйста поверните ваше устройство</p>
+</div>
+
+  <div class="floating-menu-wrapper" id="floatingMenu" style="top: 40%; left: 115px;">
+   <div class="floating-button" id="floatingButton"></div>
+    <div class="mini-menu" id="miniMenu">
+      <a href="index-ru.html#about">О НАС</a>
+      <a href="talent-booking-ru.html">ТАЛАНТЫ</a>
+      <a href="specia-projects-ru.html">ПРОЕКТЫ</a>
+      <a href="index-ru.html#contact">КОНТАКТЫ</a>
+    </div>
+  </div>
+
+
+
+<section class="intro-video-section">
+  <div class="intro-video-wrapper">
+<video autoplay muted loop playsinline preload="auto" class="intro-video">
+  <source src="intro-tb.mp4" type="video/mp4">
+</video>
+    <div class="intro-overlay">
+      <h1 class="intro-title">НАШИ ТАЛАНТЫ</h1>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="back-button-wrapper">
+  <button onclick="window.history.back()" class="back-button">← Назад</button>
+</div>
+
+
+   <!-- Первый артист -->
+<section class="talent-highlight">
+  <div class="project-card">
+    <img src="Beauty1.jpg" alt="Performer A" />
+  </div>
+  <div class="talent-text-wrapper reveal-on-scroll">
+    <p>
+      <span class="highlight-red">В The Power Entertainment мы верим, что душа любого события — в его атмосфере: в энергии,
+         наполняющей пространство, в эмоциях, которые остаются, и в искре, превращающей мгновения в воспоминания.</span>
+    Каждый артист, с которым мы работаем, проходит тщательный отбор, чтобы стать частью вашего события — только самые выдающиеся и профессиональные.</p>
+    <p>Мы понимаем, что не бывает двух одинаковых мероприятий, поэтому подбираем выступления, точно соответствующие атмосфере, настроению и замыслу именно вашего события.
+С нашей неизменной приверженностью к качеству мы предлагаем не просто развлечение — мы создаём незабываемые моменты.</p>
+  </div>
+</section>
+
+<!-- Второй артист -->
+<section class="talent-highlight reverse-layout">
+  <div class="project-card">
+    <img src="man2.jpg" alt="Performer B" />
+  </div>
+  <div class="talent-text-wrapper reveal-on-scroll">
+    <p>
+      <span class="highlight-red">The Power Entertainment чувствует пульс мирового шоу-бизнеса — там, где встречаются культура, искусство и эмоции.</span>
+Наше стремление к совершенству проявляется в каждом артисте, которого мы представляем — от глубоко укоренившихся, родных талантов, сформированных традицией и наследием,
+до выдающихся международных исполнителей, находящихся на передовой музыки, танца и уникальных жанров.
+Каждое имя в нашем составе — это не просто мастерство, а дух: живое отражение разнообразия, креативности и незабываемой сценической энергии.
+Мы не просто бронируем артистов — мы создаём трансформирующие впечатления, превращающие события в воспоминания, а сцены — в моменты, которые оставляют след.
+</p>
+  </div>
+</section>
+
+<section class="talent-highlight">
+  <div class="project-card">
+    <img src="man1.jpg" alt="Performer C" />
+  </div>
+  <div class="talent-text-wrapper reveal-on-scroll">
+    <p>
+      <span class="highlight-red">В The Power Entertainment наша команда талант-менеджеров постоянно находит смелых, ярких исполнителей, 
+    которые приносят на сцену свежую энергию и делают каждое выступление особенным.</span>
+    Вот почему мы не просто бронируем артистов — мы создаём атмосферу, способную глубоко откликнуться у вашей аудитории.
+Наши исполнители — это не просто профессионалы: это рассказчики, создатели настроения и носители ритма, отобранные за их умение вдохновлять,
+ адаптироваться и поднимать событие на новый уровень.
+С нами развлечение — это не дополнение, а само сердце вашего события.
+  </div>
+</section>
+
+
+<section id="contact" class="contact-section">
+  <h2>Погрузимся в процесс!</h2>
+  <form action="https://formspree.io/f/xpwdbvav" method="POST">
+    <input type="text" name="name" placeholder="Ваше Имя" required>
+    <input type="email" name="email" placeholder="Ваша Почта" required>
+    <textarea name="message" rows="6" placeholder="Написать Сообщение" required></textarea>
+    <button type="submit">Отправить Сообщение</button>
+  </form>
+
+  <div class="social-links">
+    <a href="https://www.instagram.com/thepowerentertainment?igsh=MTQ2NGRxd2trYnFqdg%3D%3D&utm_source=qr" target="_blank">Инстаграм</a>
+    <a href="https://facebook.com/yourpage" target="_blank">Фэйсбук</a>
+  </div>
+</section>
+
+
+<script>
+  // 📍 Меню: Открытие/Закрытие
+    let menuOpen = false;
+let isDragging = false;
+let moved = false;
+let offsetX = 0, offsetY = 0;
+
+const wrapper = document.getElementById('floatingMenu');
+const button = document.getElementById('floatingButton');
+const menu = document.getElementById('miniMenu');
+
+function toggleMiniMenu() {
+  menu.classList.toggle('show');
+  menuOpen = !menuOpen;
+}
+
+// Закрытие при клике вне меню
+document.addEventListener('click', function (e) {
+  if (menuOpen && !menu.contains(e.target) && !button.contains(e.target)) {
+    menu.classList.remove('show');
+    menuOpen = false;
+  }
+});
+
+// === 🖱 Desktop
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    moved = true;
+    wrapper.style.left = `${e.clientX - offsetX}px`;
+    wrapper.style.top = `${e.clientY - offsetY}px`;
+  }
+});
+
+document.addEventListener('mouseup', (e) => {
+  isDragging = false;
+  document.body.style.userSelect = '';
+  if (!moved && e.target === button) {
+    toggleMiniMenu(); // ✅ открываем только если не тянули
+  }
+});
+
+// === 📱 Touch
+button.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  moved = false;
+  const touch = e.touches[0];
+  offsetX = touch.clientX - wrapper.getBoundingClientRect().left;
+  offsetY = touch.clientY - wrapper.getBoundingClientRect().top;
+}, { passive: true });
+
+document.addEventListener('touchmove', (e) => {
+  if (isDragging) {
+    moved = true;
+    const touch = e.touches[0];
+    wrapper.style.left = `${touch.clientX - offsetX}px`;
+    wrapper.style.top = `${touch.clientY - offsetY}px`;
+  }
+}, { passive: false });
+
+document.addEventListener('touchend', (e) => {
+  isDragging = false;
+  if (!moved && e.changedTouches[0].target === button) {
+    toggleMiniMenu(); // ✅ для тапа на телефоне
+  }
+});
+
+
+  // 🔁 Всегда начинать сверху при обновлении
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+</script>
+
+<script>
+  // 📱 Обработка поворота экрана на мобильных
+  function updateOrientationNotice() {
+    const notice = document.getElementById("rotate-notice");
+    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+    const isPhone = window.innerWidth < 1024;
+
+    if (isPortrait && isPhone) {
+      notice.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    } else {
+      notice.style.display = "none";
+      document.body.style.overflow = "";
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", updateOrientationNotice);
+  window.addEventListener("orientationchange", updateOrientationNotice);
+  window.addEventListener("resize", updateOrientationNotice);
+</script>
+
+<script>
+  // ✨ Анимация появления при скролле
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+  function revealOnScroll() {
+    for (const el of revealElements) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.85) {
+        el.classList.add('visible');
+      } else {
+        el.classList.remove('visible');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+</script>

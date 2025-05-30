@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>СПЕЦИАЛЬНЫЕ ПРОЕКТЫ</title>
+  <link rel="stylesheet" href="special-projects.css" />
+</head>
+<body>
+  <div id="rotate-notice">
+    <div class="rotate-icon-animated"></div>
+    <p>Пожалуйста поверните ваше устройство</p>
+  </div>
+
+  <div class="floating-menu-wrapper" id="floatingMenu" style="top: 40%; left: 115px;">
+   <div class="floating-button" id="floatingButton"></div>
+    <div class="mini-menu" id="miniMenu">
+      <a href="index-ru.html#about">О НАС</a>
+      <a href="talent-booking-ru.html">ТАЛАНТЫ</a>
+      <a href="specia-projects-ru.html">ПРОЕКТЫ</a>
+      <a href="index-ru.html#contact">КОНТАКТЫ</a>
+    </div>
+  </div>
+
+  <section class="intro-video-section">
+    <div class="intro-video-wrapper">
+      <video autoplay muted loop class="intro-video">
+        <source src="intro-sp.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="intro-overlay">
+        <h1 class="intro-title">СПЕЦИАЛЬНЫЕ ПРОЕКТЫ</h1>
+      </div>
+    </div>
+  </section>
+
+  <div style="padding: 30px;">
+    <button onclick="window.history.back()" style="background-color: #a9191900; color: #ffcc70; border: 2px solid #aa1c1c00; padding: 10px 20px; font-size: 19px; cursor: pointer; border-radius: 10px; transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#444'" onmouseout="this.style.backgroundColor='#222'">
+      ← Назад
+    </button>
+  </div>
+
+  <div class="content-container">
+    <section class="projects-grid">
+
+      <section class="talent-highlight reveal-on-scroll">
+        <div class="project-card meellee-card">
+          <img src="meellee-cover.PNG" alt="MEELLEE Orchestra">
+        </div>
+        <div class="talent-text-wrapper reveal-on-scroll">
+          <p><span class="highlight-red">MEELLEE Symphonic Orchestra — это не просто оркестр,
+а живой звуковой организм, где каждый аккорд несёт в себе намерение, а каждая пауза наполнена смыслом.</span>
+          Основанный по видению The Power Entertainment,
+MEELLEE представляет собой высшую форму живого исполнения — от вечных симфоний до смелых жанровых сочетаний,
+от камерной нежности до грандиозных звуковых взрывов.
+Мы собираем не просто музыкантов — мы объединяем мастеров, которые превращают ноты в чистое переживание.
+Каждое выступление MEELLEE — это событие, где точность встречается с драмой,
+а звук становится ощутимой эмоцией.
+Будь то международная сцена, частная резиденция или открытое небо —
+MEELLEE создаёт моменты, в которых музыку не просто слышат — её проживают.</p>
+        </div>
+      </section>
+
+<section class="talent-highlight reverse-layout">
+  <div class="project-card">
+    <img src="lightelle-sp.PNG" alt="Performer B" />
+  </div>
+  <div class="talent-text-wrapper blurred reveal-on-scroll">
+    <p>
+      <span class="highlight-red">Lightelle — это место, где музыка встречается со светом. Где присутствие становится поэзией.</span>
+         В пространстве, едва освещённом десятками винтажных лампочек, каждый звук сияет — не только в слухе, но и в душе.
+Lightelle — это погружение, в котором музыканты исполняют классические шедевры,
+современные произведения в новой интерпретации, медитативные партитуры и поэтические монологи — всё это в окружении тёплого, золотистого света.
+Зрители не просто приходят — они мягко погружаются в световую композицию,
+окружённые лампами, озаряющими зал, сцену и тишину между звуками.
+Каждое выступление становится святилищем: пространством для размышлений, признаний в любви, исцеления
+и глубокой связи через звук и свет.
+          <span class="highlighted-red">Lightelle — это не просто концерт. Это световой ритуал.</span></p>
+        </div>
+      </section>
+
+      <section class="talent-highlight reveal-on-scroll">
+        <div class="project-card miliebrity-card">
+          <img src="womans-sp.jpg" alt="Miliebrity Orchestra">
+        </div>
+        <div class="talent-text-wrapper reveal-on-scroll">
+          <p><span class="highlight-red">MILEBRITY Женский Оркестр.</span>
+          MILEBRITY— это больше, чем оркестр. — Это торжество искусства, силы и утончённости в гармонии.
+Созданный женщинами, исполняемый женщинами и ведомый с чёткой целью,
+Milebrity приносит на сцену смелую и изысканную энергию — сочетая классический репертуар, современные аранжировки
+и оригинальные произведения, звучащие с ярко выраженным женским голосом.
+Каждое выступление излучает элегантность и силу, даря публике не только высочайшее музыкальное мастерство,
+но и послание: <span class="highlight-red">музыка, рожденная женщинами, обладает особой глубиной.</span>
+          От больших концертных залов до камерных салонов Milebrity создаёт атмосферу,
+в которой традиция встречается с современностью,
+а блеск женского таланта в музыке выходит на первый план.</p>
+        </div>
+      </section>
+    </section>
+  </div>
+
+  <section id="contact" class="contact-section">
+    <h2>Окунёмся в океан событий!</h2>
+    <form action="https://formspree.io/f/xpwdbvav" method="POST">
+      <input type="text" name="name" placeholder="Ваще Имя" required>
+      <input type="email" name="email" placeholder="Ваша Почта" required>
+      <textarea name="message" rows="6" placeholder="Написать Сообщение" required></textarea>
+      <button type="submit">Отправить Сообщение</button>
+    </form>
+    <div class="social-links">
+      <a href="https://instagram.com/yourprofile" target="_blank">Инстаграм</a>
+      <a href="https://facebook.com/yourpage" target="_blank">Фэйсбук</a>
+    </div>
+  </section>
+
+  <script>
+    let menuOpen = false;
+let isDragging = false;
+let moved = false;
+let offsetX = 0, offsetY = 0;
+
+const wrapper = document.getElementById('floatingMenu');
+const button = document.getElementById('floatingButton');
+const menu = document.getElementById('miniMenu');
+
+function toggleMiniMenu() {
+  menu.classList.toggle('show');
+  menuOpen = !menuOpen;
+}
+
+// Закрытие при клике вне меню
+document.addEventListener('click', function (e) {
+  if (menuOpen && !menu.contains(e.target) && !button.contains(e.target)) {
+    menu.classList.remove('show');
+    menuOpen = false;
+  }
+});
+
+// === 🖱 Desktop
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    moved = true;
+    wrapper.style.left = `${e.clientX - offsetX}px`;
+    wrapper.style.top = `${e.clientY - offsetY}px`;
+  }
+});
+
+document.addEventListener('mouseup', (e) => {
+  isDragging = false;
+  document.body.style.userSelect = '';
+  if (!moved && e.target === button) {
+    toggleMiniMenu(); // ✅ открываем только если не тянули
+  }
+});
+
+// === 📱 Touch
+button.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  moved = false;
+  const touch = e.touches[0];
+  offsetX = touch.clientX - wrapper.getBoundingClientRect().left;
+  offsetY = touch.clientY - wrapper.getBoundingClientRect().top;
+}, { passive: true });
+
+document.addEventListener('touchmove', (e) => {
+  if (isDragging) {
+    moved = true;
+    const touch = e.touches[0];
+    wrapper.style.left = `${touch.clientX - offsetX}px`;
+    wrapper.style.top = `${touch.clientY - offsetY}px`;
+  }
+}, { passive: false });
+
+document.addEventListener('touchend', (e) => {
+  isDragging = false;
+  if (!moved && e.changedTouches[0].target === button) {
+    toggleMiniMenu(); // ✅ для тапа на телефоне
+  }
+});
+
+
+
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+
+    function updateOrientationNotice() {
+      const notice = document.getElementById("rotate-notice");
+      const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+      const isPhone = window.innerWidth < 1024;
+      if (isPortrait && isPhone) {
+        notice.style.display = "flex";
+        document.body.style.overflow = "hidden";
+      } else {
+        notice.style.display = "none";
+        document.body.style.overflow = "";
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", updateOrientationNotice);
+    window.addEventListener("orientationchange", updateOrientationNotice);
+    window.addEventListener("resize", updateOrientationNotice);
+
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    function revealOnScroll() {
+      for (const el of revealElements) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
+        }
+      }
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+  </script>
+</body>
+</html>
