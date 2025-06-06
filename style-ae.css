@@ -342,7 +342,7 @@ body::before {
 }
 .rtl-text {
   direction: rtl;
-  text-align: right;
+  text-align: right !important;
 }
 .sublime-left,
 .sublime-column {
@@ -427,7 +427,7 @@ body::before {
 
 .rtl-text {
   direction: rtl;
-  text-align: right;
+  text-align: right !important;
 }
 
 
