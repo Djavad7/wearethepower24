@@ -1,0 +1,685 @@
+/* 🌌 Фон сайта */
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: rgb(86, 85, 85);
+  color: white;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("scetch.jpg") center/contain no-repeat;
+  opacity: 0.05;
+  z-index: -1;
+}
+
+/* === HEADER (логотип + меню) === */
+#logo-section {
+  position: absolute;
+  top: -10px;
+  left: clamp(20px, 6vw, 100px); /* адаптивный отступ */
+  z-index: 20;
+}
+/* === Логотип адаптивный — быстрее сжимается === */
+#logo-section .logo {
+  width: clamp(120px, 12vw, 220px); /* диапазон уменьшили, теперь быстрее реагирует */
+  height: auto;
+  transition: width 0.2s ease; /* ускорили анимацию */
+}
+
+
+/* Меню */
+/* === Контейнер меню тоже быстрее адаптируется === */
+#menu-section {
+  position: absolute;
+  color: white;          /* 🔹 вернули цвет текста */
+  top: clamp(50px, 6vw, 90px);   /* сжимается раньше */
+  right: clamp(10px, 6vw, 140px); /* уходит внутрь быстрее */
+  z-index: 20;
+}
+#menu-section .main-menu {
+  display: flex;
+  gap: clamp(15px, 4vw, 50px); /* адаптивные промежутки */
+}
+/* === Меню адаптивное — быстрее реагирует === */
+#menu-section .main-menu a {
+  font-size: clamp(12px, 1.1vw, 20px); /* быстрее уходит вниз */
+  color: white;
+  font-weight: 330;
+  text-decoration: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+#menu-section .main-menu a:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+#menu-section .main-menu a::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 0%;
+  background: rgb(138, 9, 9);
+  transition: width 0.3s ease;
+  margin: auto;
+  margin-top: 4px;
+}
+#menu-section .main-menu a:hover::after {
+  width: 100%;
+}
+
+/* === Для средних экранов — ограничение раньше === */
+@media (max-width: 1400px) {
+  #menu-section .main-menu {
+    gap: 30px;
+  }
+}
+
+/* === Для малых экранов — ещё раньше включаем сжатие === */
+@media (max-width: 1100px) {
+  #menu-section .main-menu {
+    gap: 20px;
+  }
+  #menu-section .main-menu a {
+    font-size: 13px;
+  }
+}
+
+/* Кнопка MENU — по умолчанию скрыта */
+.menu-button {
+  display: none;
+}
+
+/* === Только на маленьких экранах === */
+@media (max-width: 1024px) {
+  #menu-section { display: none; } /* скрываем обычное меню */
+} 
+/* Кнопка MENU → гамбургер */
+.menu-button {
+  display: none; /* по умолчанию скрыта */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.menu-button span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Анимация крестика */
+.menu-button.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-button.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-button.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* На маленьких экранах показываем */
+@media (max-width: 1024px) {
+  .menu-button {
+    display: flex;
+    position: fixed;
+    top: 30px;
+    right: 40px;
+  }
+}
+
+/* === Overlay меню === */
+.overlay-menu {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.946);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 3000;
+}
+.overlay-menu.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Логотип внутри overlay */
+.overlay-logo {
+  margin-bottom: -30px;
+}
+.overlay-logo img {
+  width: 150px;
+  height: auto;
+}
+
+/* Кнопка закрытия */
+.overlay-menu .close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 42px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Навигация */
+.overlay-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: center;
+}
+.overlay-menu nav a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  transition: color 0.3s ease;
+}
+.overlay-menu nav a:hover { color: #cf0303; }
+
+/* Лента со скидкой */
+.discount-ribbon {
+  position: absolute;
+  left: 45px;
+  top: 0;
+  width: 45px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.536);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.discount-ribbon span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 16px;
+  font-weight: bold;
+  color: #cf0303;
+  animation: scrollText 10s linear infinite;
+}
+@keyframes scrollText {
+  0%   { transform: translateY(100%) rotate(180deg); }
+  100% { transform: translateY(-100%) rotate(180deg); }
+}
+
+/* === HERO VIDEO === */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.hero-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.hero-overlay-text {
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0 20px; /* чтобы текст не упирался в края на мобильных */
+}
+
+.hero-overlay-text .hero-subtitle {
+  font-size: clamp(12px, 1.2vw, 18px); /* адаптивный размер */
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.hero-overlay-text .hero-subtitle::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #b30000ec;
+  margin-top: 6px;
+}
+.hero-overlay-text h1 {
+  font-size: clamp(24px, 5vw, 64px); /* уменьшение на маленьких экранах */
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    repeating-linear-gradient(to right, rgba(0, 0, 0, 0.3) 0px, rgba(0, 0, 0, 0.3) 2px, transparent 1px, transparent 11px),
+    repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0px, rgba(0, 0, 0, 0.3) 2px, transparent 1px, transparent 11px);
+}
+
+/* Подсветка */
+.highlight-red { color: #cf0303; }
+.highlight-gold { color: #ffedcc; }
+.highlight-white { color: #ffffff; }
+
+
+/* === ABOUT (адаптивное) === */
+
+.about-box {
+  max-width: 850px;
+  margin: clamp(10px, 4vw, 40px) auto; /* отступы адаптивные */
+  background-color: rgba(255, 255, 255, 0.063);
+  padding: clamp(15px, 3vw, 35px);     /* паддинги уменьшаются */
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+.about-box h2 {
+  font-size: clamp(20px, 4vw, 42px); /* заголовок уменьшается */
+  color: #b50000;
+  margin-bottom: clamp(15px, 3vw, 30px);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.about-box p {
+  font-size: clamp(14px, 2vw, 22px); /* текст адаптивный */
+  line-height: 1.6;
+  margin-bottom: clamp(10px, 2vw, 16px);
+}
+
+/* === Reveal animation === */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Book button адаптивная === */
+.book-btn {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #fd3c2a, #a41305fa);
+  border: none;
+  color: white;
+  padding: clamp(10px, 1.2vw, 14px) clamp(20px, 2vw, 32px); /* кнопка адаптивно сжимается */
+  font-size: clamp(14px, 1.6vw, 18px); /* текст тоже адаптивный */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  z-index: 20;
+}
+.book-btn:hover {
+  opacity: 0.9;
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* === Modal === */
+.modal {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  z-index: 5000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+.modal.show { display: flex; opacity: 1; }
+/* === Modal адаптивное === */
+.modal-content {
+  position: relative;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: clamp(20px, 4vw, 40px); /* уменьшается на маленьких */
+  max-width: clamp(300px, 70vw, 480px); /* ширина подстраивается */
+  width: 90%;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.8);
+  border: 3px solid #ca101064;
+  background: linear-gradient(180deg, #ffffff, #ffffffeb);
+}
+
+.modal-content::before {
+  content: "";
+  position: absolute;
+  top: -12px; left: -12px; right: -12px; bottom: -12px;
+  border-radius: 80px;
+  background: linear-gradient(90deg, #f8a7a7, #a41305fa);
+  opacity: 0.4;
+  filter: blur(18px);
+  z-index: -1;
+}
+/* Заголовки внутри модалки */
+.modal-content h2 {
+  margin-bottom: 10px;
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 600;
+  color: #e00808;
+}
+.modal-content p {
+  font-size: clamp(12px, 1.5vw, 16px);
+  color: #dc0909;
+  margin-bottom: 20px;
+}
+
+/* Поля */
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: clamp(8px, 1.5vw, 12px);
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: clamp(12px, 1.5vw, 14px);
+}
+
+/* Кнопка внутри модалки */
+.send-btn {
+  background: linear-gradient(90deg, #fd3c2a, #a41305fa);
+  color: white;
+  border: none;
+  padding: clamp(10px, 1.5vw, 14px) clamp(18px, 2vw, 24px);
+  border-radius: 8px;
+  font-size: clamp(12px, 1.5vw, 16px);
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.send-btn:hover {
+  opacity: 0.95;
+  transform: scale(1.03);
+}
+.close-btn {
+  position: absolute;
+  top: 14px; right: 18px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #444;
+}
+.close-btn:hover { color: #ff6f61; }
+
+/* === SERVICES (адаптивные) === */
+.services-section {
+  max-width: 1100px;
+  margin: clamp(20px, 5vw, 60px) auto;
+  text-align: center;
+  padding: clamp(20px, 4vw, 40px);
+}
+
+.services-section h2 {
+  font-size: clamp(22px, 4vw, 42px); /* уменьшается на маленьких экранах */
+  color: #b50000;
+  text-transform: uppercase;
+  margin-bottom: clamp(25px, 5vw, 50px);
+  letter-spacing: -1px;
+}
+
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(140px, 30vw, 250px), 1fr));
+  gap: clamp(15px, 3vw, 40px); /* расстояния тоже адаптивные */
+  justify-items: center;
+}
+
+
+.service-item {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+.service-item video {
+  width: 100%;
+  height: clamp(120px, 20vw, 250px); /* видео адаптивное */
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+
+/* Лёгкая матовая плёнка */
+.service-item::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(1px);
+  z-index: 1;
+}
+
+/* Текст поверх видео */
+.service-item p {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: clamp(12px, 2vw, 18px);
+  font-weight: 400;
+  text-align: center;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.4);
+  border-radius: 6px;
+}
+/* Лента со скидкой */
+.promo-ribbon {
+  position: fixed;
+  top: 0;
+  left: clamp(30px, 6vw, 150px);   /* плавно сдвигается от края */
+  width: clamp(40px, 6vw, 140px);  /* адаптивная ширина */
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.574);
+  overflow: hidden;
+  z-index: 19;
+  display: flex;
+  justify-content: center;
+}
+
+/* Текст в ленте */
+.promo-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: clamp(12px, 1.5vw, 32px);  /* тоже адаптивный размер */
+  font-weight: 700;
+  color: #cf0303;
+  white-space: nowrap;
+  animation: scroll-up 12s linear infinite;
+}
+
+/* Анимация движения текста */
+@keyframes scroll-up {
+  0%   { transform: rotate(180deg) translateY(100%); }
+  100% { transform: rotate(180deg) translateY(-100%); }
+}
+/* === CTA Section (адаптивная) === */
+.cta-section {
+  display: flex;
+  flex-wrap: wrap; /* 🔹 чтобы на узких экранах блоки вставали друг под друга */
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(10px, 3vw, 40px);
+  max-width: 1200px;
+  margin: clamp(20px, 5vw, 60px) auto;
+  padding: clamp(20px, 5vw, 60px);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+}
+
+/* Левый блок */
+.cta-left {
+  flex: 1;
+  min-width: 280px; /* 🔹 не схлопывается */
+  background: #c40f0f;
+  color: #fff;
+  padding: clamp(20px, 4vw, 40px);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.cta-left h3 {
+  font-size: clamp(14px, 2vw, 20px);
+  margin-bottom: 12px;
+}
+.cta-left h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.cta-left h2 {
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-left p {
+  font-size: clamp(14px, 2.5vw, 22px);
+  line-height: 1.6;
+}
+/* Правый блок */
+.cta-right {
+  flex: 1;
+  min-width: 280px;
+  background: #fff;
+  border-radius: 16px;
+  padding: clamp(20px, 4vw, 40px);
+  text-align: left;
+  color: #000;
+}
+
+.cta-right h3 {
+  margin-bottom: 20px;
+  font-size: clamp(16px, 2.5vw, 25px);
+  color: #d50707;
+}
+
+/* Форма */
+.cta-right form input,
+.cta-right form textarea {
+  width: 80%; /* 🔹 ширина только 80% контейнера */
+  max-width: 400px; /* 🔹 ограничение сверху */
+  padding: 12px;
+  margin: 10px auto; /* 🔹 центрируем */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: clamp(12px, 2vw, 14px);
+  outline: none;
+  display: block; /* нужно для margin: auto */
+}
+
+.cta-right form input:focus,
+.cta-right form textarea:focus {
+  border: 1px solid #ff6f61;
+}
+
+/* Кнопка */
+.cta-right .send-btn {
+  background: linear-gradient(90deg, #fd3c2a, #a41305fa);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(14px, 2.5vw, 16px);
+  margin-top: 15px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.cta-right .send-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+/* === FOOTER === */
+.footer {
+  background: #0c0c0c;
+  color: #aaa;
+  text-align: center;
+  padding: 60px 20px 30px;
+  margin-top: 100px;
+}
+
+.footer-logo img {
+  width: 200px;
+  margin-bottom: 25px;
+}
+
+.footer-slogan {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.footer-slogan span {
+  color: #cf0303; /* красный акцент */
+}
+
+/* Соцсети */
+.footer-socials {
+  margin-bottom: 25px;
+}
+.footer-socials a {
+  color: white;              /* всегда белые */
+  margin: 0 12px;
+  font-size: 22px;
+  transition: color 0.3s ease;
+}
+.footer-socials a:hover {
+  color: #cf0303;            /* при наведении красный */
+}
+
+.footer-copy {
+  font-size: 14px;
+  color: #666;
+}

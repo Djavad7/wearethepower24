@@ -1,0 +1,169 @@
+/* === Общие стили === */
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #111;
+  color: #fff;
+  display: flex;
+}
+
+/* Контейнер */
+
+.catalogue-container {
+  display: flex;
+  padding-left: 240px; /* отступ под sidebar */
+}
+/* === Sidebar === */
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 5px 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.sidebar-logo img {
+  width: 140px;
+  height: auto;
+}
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.sidebar-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px 19px;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.sidebar-menu a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #cf0303;
+}
+.submenu-title {
+  margin: 20px 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+
+/* Сетка карточек */
+.catalogue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* адаптивные колонки */
+  gap: 20px;
+  padding: 20px;
+  justify-content: start;   /* вся сетка прижата влево */
+  justify-items: start;     /* карточки прижаты влево */
+}
+
+/* === Карточки === */
+.card {
+  background: #222;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  aspect-ratio: 1; /* квадрат */
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+.card-img {
+  flex: 8;
+  overflow: hidden;
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-name {
+  flex: 2;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  background: #111;
+}
+
+/* === Модальное окно === */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 4000;
+}
+.modal-content {
+  background: #fff;
+  color: #000;
+  border-radius: 14px;
+  padding: 20px;
+  width: 400px;
+  height: 450px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.modal-content img {
+  width: 100%;
+  height: auto;
+  max-height: 60%;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #000;
+}
+.modal-content h2 {
+  margin: 5px 0;
+  font-size: 22px;
+  color: #111;
+}
+.modal-content p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+.modal-content a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: #cf0303;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+.modal-content a:hover {
+  background: #a10202;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  cursor: pointer;
+  font-size: 22px;
+  color: #444;
+}
