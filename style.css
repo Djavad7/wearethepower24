@@ -201,7 +201,7 @@ body::before {
   top: 0;
   width: 45px;
   height: 100%;
-  background: rgba(255, 255, 255, 0.536);
+  background: rgba(255, 255, 255, 0.374);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -210,10 +210,10 @@ body::before {
 .discount-ribbon span {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-size: 16px;
-  font-weight: bold;
-  color: #cf0303;
-  animation: scrollText 10s linear infinite;
+  font-size: 20px;
+  font-weight: 10px;
+  color: #ffdd00;
+  animation: scroll-up 12s linear infinite;
 }
 @keyframes scrollText {
   0%   { transform: translateY(100%) rotate(180deg); }
@@ -520,9 +520,9 @@ body::before {
   position: fixed;
   top: 0;
   left: clamp(30px, 6vw, 150px);   /* плавно сдвигается от края */
-  width: clamp(40px, 6vw, 140px);  /* адаптивная ширина */
+  width: clamp(50px, 6vw, 140px);  /* адаптивная ширина */
   height: 100vh;
-  background: rgba(255, 255, 255, 0.574);
+  background: rgba(255, 255, 255, 0.384);
   overflow: hidden;
   z-index: 19;
   display: flex;
@@ -534,9 +534,9 @@ body::before {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
-  font-size: clamp(12px, 1.5vw, 32px);  /* тоже адаптивный размер */
+  font-size: clamp(18px, 1.5vw, 32px);  /* тоже адаптивный размер */
   font-weight: 700;
-  color: #cf0303;
+  color: #ffdd00;
   white-space: nowrap;
   animation: scroll-up 12s linear infinite;
 }
