@@ -329,7 +329,7 @@ body::before {
 /* === Book button адаптивная === */
 .book-btn {
   position: absolute;
-  top: 75%;
+  top: 82%;
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(90deg, #fd3c2a, #cf0303);
@@ -688,3 +688,4 @@ body::before {
   font-size: 14px;
   color: #666;
 }
+
