@@ -301,11 +301,11 @@ body::before {
   text-align: center;
 }
 .about-box h2 {
-  font-size: clamp(26px, 4vw, 42px); /* заголовок уменьшается */
+  font-size: clamp(28px, 4vw, 52px); /* заголовок уменьшается */
   color: #d50303;
   margin-bottom: clamp(22px, 3vw, 30px);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 300;
   letter-spacing: 1px;
 }
 
@@ -446,11 +446,12 @@ body::before {
 }
 
 .services-section h2 {
-  font-size: clamp(28px, 4vw, 42px); /* уменьшается на маленьких экранах */
-  color:  #d20000;
+  font-size: clamp(30px, 4vw, 52px); /* уменьшается на маленьких экранах */
+  color: #d20000;
   text-transform: uppercase;
   margin-bottom: clamp(25px, 5vw, 50px);
   letter-spacing: -1px;
+  font-weight: 300; /* 🔹 толщина: 100 (тонкий) → 900 (жирный) */
 }
 
 
