@@ -708,8 +708,8 @@ body::before {
 /* Floating WhatsApp Button */
 .whatsapp-float {
   position: fixed;
-  bottom: 100px;
-  right: 100px;
+  bottom: 50px;
+  right: 60px;
   width: 60px;
   height: 60px;
   background-color: #25D366; /* фирменный зеленый */
@@ -730,6 +730,7 @@ body::before {
   box-shadow: 0 6px 16px rgba(0,0,0,0.6);
   background-color: #20b955; /* чуть темнее при наведении */
 }
+
 
 
 
