@@ -705,28 +705,56 @@ body::before {
 }
 
 
-/* Floating WhatsApp Button */
-.whatsapp-float {
+/* По умолчанию (большие экраны) */
+.whatsapp-button {
   position: fixed;
-  bottom: 100px;
-  right: 100px;
+  bottom: 20px;  /* расстояние снизу */
+  right: 20px;   /* расстояние справа */
   width: 60px;
   height: 60px;
-  background-color: #25D366; /* фирменный зеленый */
-  color: white;
   border-radius: 50%;
+  background-color: #25D366; /* фирменный зелёный */
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 32px;
-  z-index: 5000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-decoration: none;
+  justify-content: center;
+  z-index: 3000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.whatsapp-button img {
+  width: 32px;
+  height: 32px;
+}
+.whatsapp-button:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
 }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
-  background-color: #20b955; /* чуть темнее при наведении */
+/* 📱 На телефонах (чуть ниже и компактнее) */
+@media (max-width: 768px) {
+  .whatsapp-button {
+    bottom: 40px;   /* опускаем ниже */
+    right: 15px;    /* чуть ближе к краю */
+    width: 50px;
+    height: 50px;
+  }
+  .whatsapp-button img {
+    width: 28px;
+    height: 28px;
+  }
 }
+
+/* 📱 Очень маленькие экраны */
+@media (max-width: 480px) {
+  .whatsapp-button {
+    bottom: 50px;   /* ещё ниже */
+    right: 12px;
+    width: 45px;
+    height: 45px;
+  }
+  .whatsapp-button img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
