@@ -167,3 +167,29 @@ body {
   font-size: 22px;
   color: #444;
 }
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 50px;
+  right: 60px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366; /* фирменный зеленый */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  z-index: 5000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+  background-color: #20b955; /* чуть темнее при наведении */
+}
