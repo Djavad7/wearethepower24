@@ -520,7 +520,7 @@ body::before {
 
   color: #f3d281;
   font-size: clamp(35px, 4vw, 37px); /* 🔹 большой текст, адаптивный */
-  font-weight: 190;
+  font-weight: 200;
   text-align: center;
 
   z-index: 2;
@@ -730,6 +730,7 @@ body::before {
   box-shadow: 0 6px 16px rgba(0,0,0,0.6);
   background-color: #20b955; /* чуть темнее при наведении */
 }
+
 
 
 
