@@ -326,21 +326,35 @@ body::before {
   transform: translateY(0);
 }
 
-/* === Book button адаптивная === */
+/* По умолчанию (для больших экранов) */
 .book-btn {
   position: absolute;
-  top: 80%;
+  top: 70%;   /* положение по вертикали */
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(90deg, #fd3c2a, #cf0303);
   border: none;
   color: white;
-  padding: clamp(10px, 1.2vw, 14px) clamp(20px, 2vw, 32px); /* кнопка адаптивно сжимается */
-  font-size: clamp(14px, 1.6vw, 18px); /* текст тоже адаптивный */
+  padding: clamp(10px, 1.2vw, 14px) clamp(20px, 2vw, 32px);
+  font-size: clamp(14px, 1.6vw, 18px);
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
   z-index: 20;
+}
+
+/* На экранах до 768px (телефоны) */
+@media (max-width: 768px) {
+  .book-btn {
+    top: 80%;  /* опускаем ниже */
+  }
+}
+
+/* На совсем маленьких экранах до 480px */
+@media (max-width: 480px) {
+  .book-btn {
+    top: 85%;  /* ещё чуть ниже */
+  }
 }
 .book-btn:hover {
   opacity: 0.9;
@@ -372,8 +386,8 @@ body::before {
   width: 90%;
   text-align: center;
   animation: fadeIn 0.4s ease;
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.8);
-  border: 3px solid #ca101064;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0);
+  border: 3px solid #ffffff;
   background: linear-gradient(180deg, #ffffff, #ffffffeb);
 }
 
@@ -391,7 +405,7 @@ body::before {
 .modal-content h2 {
   margin-bottom: 10px;
   font-size: clamp(18px, 2vw, 26px);
-  font-weight: 600;
+  font-weight: 400;
   color: #cf0303;
 }
 .modal-content p {
@@ -688,4 +702,31 @@ body::before {
 .footer-copy {
   font-size: 14px;
   color: #666;
+}
+
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366; /* фирменный зеленый */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  z-index: 5000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+  background-color: #20b955; /* чуть темнее при наведении */
 }
