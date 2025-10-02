@@ -43,3 +43,18 @@ closeBtn.addEventListener("click", () => {
 window.addEventListener("click", (e) => {
   if (e.target === modal) modal.style.display = "none";
 });
+
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) modal.style.display = "none";
+});
+
+window.addEventListener("load", () => {
+  const msg = document.getElementById("catalogue-message");
+  msg.classList.add("show");
+
+  // держим сообщение 4 секунды и убираем
+  setTimeout(() => {
+    msg.classList.remove("show");
+  }, 6000);
+});
