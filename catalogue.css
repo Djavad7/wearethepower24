@@ -62,7 +62,7 @@ body {
 
 .catalogue-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* адаптивные колонки */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* адаптивные колонки */
   gap: 20px;
   padding: 20px;
   margin-left: 180px; /* отступ от меню */
