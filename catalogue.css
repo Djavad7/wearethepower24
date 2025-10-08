@@ -37,7 +37,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: -50px; /* поднимаем меню выше */
-  gap: 5px;
+  gap: 1px;
 }
 .sidebar-menu a {
   color: white;
