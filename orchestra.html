@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orchestras — The Power Entertainment</title>
+  <link rel="stylesheet" href="orchestra.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- === HERO VIDEO SECTION: MEELLEE === -->
+  <section class="hero">
+    <video id="video1" autoplay muted loop playsinline class="hero-bg">
+      <source src="MEELLEEWEB.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="overlay">
+      <h1>ORCHESTRAS</h1>
+      <p>A cinematic and emotionally charged symphonic experience.</p>
+      <a href="https://youtu.be/-TqD7QXIxJ8" target="_blank" class="watch-btn">▶ WATCH FULL VIDEO</a>
+    </div>
+
+    <!-- Кнопка звука -->
+    <button id="mute1" class="mute-btn" aria-label="Toggle sound">
+      🔇
+    </button>
+  </section>
+
+  <!-- === DESCRIPTION SECTION: MEELLEE === -->
+  <section class="orchestra-info">
+    <div class="description">
+      <h2>MEELLEE Symphonic Orchestra</h2>
+      <p>
+        The MEELLEE Symphonic Orchestra delivers a cinematic and emotionally charged performance that blends
+        classical precision with modern storytelling. 
+        In this recording, the orchestra performs the iconic score from <em>The Aviator</em>, 
+        capturing the spirit of Howard Hughes testing the XF-11 racer plane.
+        Every note was recorded live in studio — a full symphonic experience brought to life with passion and authenticity.
+      </p>
+    </div>
+
+    <div class="options">
+      <h3>Options</h3>
+      <ul>
+        <li><strong>String Orchestra</strong> — 10–12 Musicians</li>
+        <li><strong>Symphonic Orchestra Size S</strong> — 20–22 Musicians</li>
+        <li><strong>Symphonic Orchestra Size M</strong> — 30–32 Musicians</li>
+        <li><strong>Full Orchestra</strong> — 40+ Musicians</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- === HERO VIDEO SECTION: MULIEBRITY === -->
+  <section class="hero">
+    <video id="video2" autoplay muted loop playsinline class="hero-bg">
+      <source src="MULIEBRITYWEB.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="overlay">
+      <h1>Muliebrity</h1>
+      <p>An elegant fusion of strength, beauty, and sound.</p>
+      <a href="https://youtube.com/playlist?list=PLpZZZpYkkfj6cmJYZkUtTBXXHNrB8eJBC&si=54ZWYuoAqoAokGy9" target="_blank" class="watch-btn">▶ WATCH FULL VIDEO</a>
+    </div>
+
+    <!-- Кнопка звука -->
+    <button id="mute2" class="mute-btn" aria-label="Toggle sound">
+      🔇
+    </button>
+  </section>
+
+  <!-- === DESCRIPTION SECTION: MULIEBRITY === -->
+  <section class="orchestra-info">
+    <div class="description">
+      <h2>MULIEBRITY — A WOMAN’S ORCHESTRA</h2>
+      <p>
+        Muliebrity Orchestra unites exceptional female musicians whose elegance and strength define a new chapter in orchestral performance.
+        Their sound combines sensitivity with boldness, creating an atmosphere of sophistication and emotion.
+      </p>
+    </div>
+
+    <div class="options">
+      <h3>Options</h3>
+      <ul>
+        <li><strong>Quartet</strong> — 4 Musicians</li>
+        <li><strong>String Orchestra</strong> — 10–15 Musicians</li>
+        <li><strong>Symphonic All-Ladies Orchestra</strong> — 20–22 Musicians</li>
+        <li><strong>Full Ladies Orchestra</strong> — 40+ Musicians</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- === CONTACT SECTION === -->
+  <section class="contact-section">
+    <h2>Contact Us</h2>
+    <p>For bookings and collaborations with MULIEBRITY All-Women’s Orchestra and MEELLEE Symphonic Orchestra, reach out to our team:</p>
+
+    <div class="contact-info">
+      <a href="mailto:info@thepowerentertainment.com" class="contact-btn">✉ info@thepowerentertainment.com</a>
+    </div>
+  </section>
+
+  <!-- === WhatsApp Floating Button === -->
+  <a href="https://wa.me/971585024003" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
+
+  <!-- === JS SOUND CONTROL === -->
+  <script>
+    const videos = [
+      { video: document.getElementById('video1'), button: document.getElementById('mute1') },
+      { video: document.getElementById('video2'), button: document.getElementById('mute2') }
+    ];
+
+    videos.forEach(({ video, button }) => {
+      button.addEventListener('click', () => {
+        if (video.muted) {
+          video.muted = false;
+          button.textContent = '🔊';
+        } else {
+          video.muted = true;
+          button.textContent = '🔇';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

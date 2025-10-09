@@ -1,0 +1,284 @@
+/* === GLOBAL === */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(ellipse at center, #000 40%, #090909 100%);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* === HERO VIDEO === */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.2);
+  z-index: -1;
+  transition: filter 0.5s ease;
+}
+
+/* === OVERLAY TEXT === */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.overlay h1 {
+  font-size: clamp(40px, 7vw, 90px);
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #cf0303, #ff2f2f, #fff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 6s linear infinite;
+}
+
+.overlay p {
+  font-size: clamp(16px, 2vw, 20px);
+  color: #dcdcdc;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+/* === WATCH FULL VIDEO BUTTON === */
+.watch-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 16px 38px;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border: 2px solid #cf0303;
+  border-radius: 40px;
+  background: rgba(207, 3, 3, 0.15);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 10px rgba(207, 3, 3, 0.4);
+  transition: all 0.3s ease;
+  animation: pulseGlow 2.5s infinite;
+}
+
+.watch-btn:hover {
+  background: #cf0303;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+  transform: scale(1.05);
+}
+
+/* === Modern Minimal Mute Button === */
+.mute-btn {
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mute-btn svg {
+  width: 26px;
+  height: 26px;
+  fill: #fff;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.mute-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.08);
+}
+
+.mute-btn:hover svg {
+  opacity: 1;
+}
+
+/* 🔊 Активное состояние — звук включён */
+.mute-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
+}
+
+.mute-btn.active svg {
+  fill: #ff4444;
+  opacity: 1;
+}
+
+/* === DESCRIPTION SECTION === */
+.orchestra-info {
+  background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+  padding: 80px 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.description {
+  flex: 1 1 480px;
+}
+
+.description h2 {
+  font-size: 30px;
+  color: #ff3333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+
+.description p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #ccc;
+  max-width: 700px;
+}
+
+/* === OPTIONS BLOCK === */
+.options {
+  flex: 1 1 320px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+.options:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 40px rgba(207, 3, 3, 0.3);
+}
+
+.options h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.options ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.options li {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #ccc;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 0;
+}
+.options li strong {
+  color: #fff;
+}
+
+/* === CONTACT SECTION === */
+.contact-section {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-section h2 {
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #ff3333;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.contact-section p {
+  font-size: 16px;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.contact-btn:hover {
+  background: #cf0303;
+  border-color: #cf0303;
+  transform: scale(1.05);
+}
+
+/* === WhatsApp Floating Button === */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 60px;
+  right: 60px;
+  width: 65px;
+  height: 65px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-btn img {
+  width: 34px;
+  height: 34px;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+/* === ANIMATIONS === */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(255, 0, 0, 0.6); }
+}
+
