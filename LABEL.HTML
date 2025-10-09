@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ONE TAKE ONLY — Music Label</title>
+  <link rel="stylesheet" href="LABEL.CSS" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- === BACKGROUND VIDEO === -->
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="LABELOGON.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- === OVERLAY CONTENT === -->
+<div class="overlay">
+  <img src="LABEL.PNG" alt="ONE TAKE ONLY" class="logo">
+  <p class="subtitle">
+    An independent music label under The Power Entertainment.<br>
+    Dedicated to raw, authentic sound — capturing moments that happen only once.<br>
+    Every track is created in a single flow, without pressure — just pure emotion.
+  </p>
+</div> <!-- ← вот этого закрывающего div не хватало -->
+
+<!-- === TRACKS SECTION === -->
+<section class="tracks" id="tracks">
+
+  <!-- Track 1 -->
+  <div class="track" data-src="BACKTOBACK The Call.mp3">
+    <div class="cover">
+      <img src="THECALL.png" alt="The Call cover">
+    </div>
+
+    <div class="meta">
+      <h3 class="title">BACKTOBACK – The Call</h3>
+      <p class="subtitle">Unreleased</p>
+
+      <div class="controls">
+        <button class="btn play">Play</button>
+        <div class="time">
+          <span class="cur">0:00</span> / <span class="dur">0:00</span>
+        </div>
+        <div class="bar"><span></span></div>
+        <a class="dl" href="BACKTOBACK The Call.mp3" download>Download</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Track 2 -->
+  <div class="track" data-src="BACKTOBACK  Falling.mp3">
+    <div class="cover">
+      <img src="FALLING.png" alt="Falling In Love cover">
+    </div>
+
+    <div class="meta">
+      <h3 class="title">BACKTOBACK – Falling In Love</h3>
+      <p class="subtitle">Unreleased</p>
+
+      <div class="controls">
+        <button class="btn play">Play</button>
+        <div class="time">
+          <span class="cur">0:00</span> / <span class="dur">0:00</span>
+        </div>
+        <div class="bar"><span></span></div>
+        <a class="dl" href="BACKTOBACK  Falling.mp3" download>Download</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+  <!-- === CONTACT SECTION === -->
+<section class="contact-section">
+  <h2>Contact</h2>
+  <p>For collaborations, licensing, and submissions — reach out to our label team:</p>
+  
+  <div class="contact-info">
+    <a href="mailto:info@thepowerentertainment.com" class="contact-btn">✉ onetake@thepowerentertainment.com</a>
+  </div>
+</section>
+
+  <script src="LABEL.JS"></script>
+</body>
+</html>
